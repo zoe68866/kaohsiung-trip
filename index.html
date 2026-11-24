@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>出ㄎㄧˋ勝高雄、台南遊</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="媽媽南下高雄的四天三夜行程：橋頭糖廠、泡湯、台南一日遊、鹽埕吃一輪。">
+<meta name="theme-color" content="#f5f8f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#11201f" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 版面：港都潮汐，一條直的時間軸沿著海岸線往下走，每天一段 */
+/* ========== 1. 顏色（淺色／深色） ========== */
+:root{
+  --bg:#f5f8f8; --surface:#ffffff; --fg:#1d3137; --muted:#5f7479; --line:#d6e2e3;
+  --sea:#2a7f8f; --sea-soft:#e2f0f1; --sun:#e08a4b; --sun-soft:#fbeee3;
+  --veil:rgba(245,248,248,.62);
+  --shadow:0 1px 2px rgba(29,49,55,.05),0 10px 28px rgba(29,49,55,.07);
+  --f-title:"LXGW WenKai TC","PingFang TC","Microsoft JhengHei","Noto Serif TC",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",system-ui,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,"PingFang TC","Microsoft JhengHei",monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11201f; --surface:#182b2c; --fg:#e4eeee; --muted:#9db2b3; --line:#2a4142;
+    --sea:#6cc3cf; --sea-soft:#1d3a3d; --sun:#f0a571; --sun-soft:#3a2a20;
+    --veil:rgba(17,32,31,.62);
+    --shadow:0 1px 2px rgba(0,0,0,.25),0 10px 28px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11201f; --surface:#182b2c; --fg:#e4eeee; --muted:#9db2b3; --line:#2a4142;
+  --sea:#6cc3cf; --sea-soft:#1d3a3d; --sun:#f0a571; --sun-soft:#3a2a20;
+  --veil:rgba(17,32,31,.62);
+  --shadow:0 1px 2px rgba(0,0,0,.25),0 10px 28px rgba(0,0,0,.25);
+  color-scheme:dark;
+}
+
+/* ========== 2. 基本 ========== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.7;overflow-x:hidden}
+a{color:var(--sea)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--sun);outline-offset:3px;border-radius:8px}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+
+/* ========== 3. 標題區 ========== */
+.hero{position:relative;padding-top:44px;padding-bottom:56px;overflow:hidden}
+.eyebrow{margin:0 0 6px;font-family:var(--f-mono);font-size:13px;letter-spacing:.18em;color:var(--muted)}
+.hero h1{margin:0;font-family:var(--f-title);font-weight:700;font-size:clamp(44px,13vw,72px);line-height:1.12;letter-spacing:.02em;text-wrap:balance}
+.hero h1 .k{color:var(--sun)}
+.hero h1 .s{color:var(--sea)}
+.sub{margin:14px 0 0;color:var(--muted);font-size:16px;max-width:34em}
+.tip{display:inline-flex;align-items:center;gap:8px;margin:14px 0 0;padding:6px 12px;border-radius:999px;background:var(--sun-soft);color:var(--fg);font-size:14px}
+.tip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sun);flex:none}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0 0;padding:0}
+.facts div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;min-width:0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:2px 0 0;font-family:var(--f-mono);font-size:15px;font-weight:500;line-height:1.35}
+.facts dd.cd{color:var(--sun)}
+.hero-wave{position:absolute;left:0;right:0;bottom:6px;height:26px;overflow:hidden;pointer-events:none}
+.hero-wave svg{width:200%;height:26px;display:block;animation:drift 14s ease-in-out infinite alternate}
+.hero-wave path{fill:none;stroke:var(--sea);stroke-width:2;stroke-linecap:round;opacity:.55}
+.hero-wave path + path{stroke:var(--sun);opacity:.35}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ========== 4. 黏在上方的日期列 ========== */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:30;background:var(--bg)}
+.daynav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.daynav .wrap{display:flex;gap:8px;padding-top:10px;padding-bottom:10px;overflow-x:auto;scrollbar-width:none}
+.daynav .wrap::-webkit-scrollbar{display:none}
+.daybtn{flex:1 1 0;min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 4px;font-family:var(--f-mono);font-size:13px;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
+.daybtn b{font-weight:500}
+.daybtn span{margin-left:3px;font-family:var(--f-body);font-size:12px}
+.daybtn[aria-current="true"]{background:var(--sea);border-color:var(--sea);color:var(--bg)}
+
+/* ========== 5. 提醒框 ========== */
+.remind{display:flex;gap:12px;align-items:flex-start;margin:22px 0 4px;padding:14px 16px;border-radius:16px;background:var(--sun-soft);border:1px solid color-mix(in srgb,var(--sun) 35%,transparent)}
+.pulse{position:relative;flex:none;width:10px;height:10px;margin-top:8px;border-radius:50%;background:var(--sun)}
+.pulse::after{content:"";position:absolute;inset:-6px;border-radius:50%;background:var(--sun);opacity:.35;animation:breathe 2s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(.6);opacity:.45}50%{transform:scale(1.4);opacity:0}}
+.remind strong{display:block;font-weight:700}
+.remind small{display:block;color:var(--muted);font-family:var(--f-mono);font-size:13px}
+
+/* ========== 6. 每一天 ========== */
+.day{padding-top:38px;scroll-margin-top:60px}
+.day-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.day-date{font-family:var(--f-mono);font-size:40px;font-weight:500;line-height:1;color:var(--sea);letter-spacing:-.02em}
+.day-title{margin:0;font-family:var(--f-title);font-size:24px;font-weight:700;line-height:1.3;text-wrap:balance}
+.day-dow{font-family:var(--f-mono);font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 9px}
+
+/* 今天怎麼排 */
+.plan{margin:14px 0 0;padding:12px 14px 12px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--sea)}
+.plan-title{margin:0 0 4px;font-size:14px;font-weight:700;color:var(--sea)}
+.plan ul{margin:0;padding-left:18px;font-size:14px}
+.plan li{margin:2px 0}
+.plan li::marker{color:var(--sea)}
+
+/* 攜帶清單 */
+.pack{margin:14px 0 0;padding:12px 14px;border-radius:14px;background:var(--sea-soft)}
+.pack-title{margin:0 0 6px;font-size:13px;color:var(--muted)}
+.pack ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pack-item{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px 5px 8px;cursor:pointer;font-size:14px;transition:opacity .2s}
+.pack-item .box{width:18px;height:18px;border-radius:6px;border:1.5px solid var(--sea);display:grid;place-items:center;flex:none;transition:background .2s}
+.pack-item .box svg{width:12px;height:12px;stroke:var(--bg);stroke-width:2.6;fill:none;opacity:0;transition:opacity .2s}
+.pack-item[aria-pressed="true"]{opacity:.62}
+.pack-item[aria-pressed="true"] .label{text-decoration:line-through;text-decoration-thickness:1.5px}
+.pack-item[aria-pressed="true"] .box{background:var(--sea)}
+.pack-item[aria-pressed="true"] .box svg{opacity:1}
+
+/* 時間軸 */
+.tl{position:relative;list-style:none;margin:22px 0 0;padding:0 0 0 30px}
+.tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--line);border-radius:2px}
+.stop{position:relative;margin:0 0 6px}
+.stop::before{content:"";position:absolute;left:-27px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--sea);box-shadow:0 0 0 4px var(--bg)}
+.stop.meal::before{border-color:var(--sun)}
+.stop.opt::before{border-style:dashed}
+.card{position:relative;margin-top:24px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+.stop.skip{opacity:.42;filter:grayscale(.6)}
+.stop.skip .card{box-shadow:none;border-style:dashed}
+.stop.opt .card{border-style:dashed;border-width:1.5px;box-shadow:none}
+.card-head{padding-right:62px}
+.card.noillo .card-head{padding-right:0}
+.time{margin:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.stop.meal .time{color:var(--sun)}
+.badge{font-family:var(--f-body);font-size:12px;padding:0 8px;border-radius:999px;border:1px dashed var(--sea);color:var(--sea);line-height:1.6}
+.badge.add{border-style:solid;background:var(--sea-soft);border-color:transparent}
+.name{margin:2px 0 0;font-family:var(--f-title);font-size:22px;font-weight:700;line-height:1.35;text-wrap:balance}
+.desc{margin:8px 0 0;color:var(--fg)}
+
+/* 地址（點了直接開 Google 地圖導航）與時間 */
+.addr{display:flex;align-items:flex-start;gap:8px;margin:10px 0 0;padding:8px 10px;border-radius:12px;background:var(--bg);border:1px solid var(--line);font-size:14px;color:var(--fg);text-decoration:none;transition:border-color .2s,background .2s}
+.addr:hover{border-color:var(--sea)}
+.addr .lbl,.hours .lbl{flex:none;font-size:12px;padding:1px 8px;border-radius:6px;background:var(--sea-soft);color:var(--sea);margin-top:1px}
+.addr .txt{flex:1;min-width:0;overflow-wrap:anywhere}
+.addr .nav{flex:none;align-self:center;font-size:13px;font-weight:500;color:var(--sea);white-space:nowrap}
+.hours{display:flex;align-items:flex-start;gap:8px;margin:8px 0 0;font-size:14px;color:var(--muted)}
+.hours .lbl{background:var(--sun-soft);color:var(--sun)}
+
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;padding:0;list-style:none}
+.tags li{font-size:12px;padding:2px 10px;border-radius:999px;background:var(--sea-soft);color:var(--sea)}
+.note{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:var(--sun-soft);font-size:14px}
+.note b{color:var(--sun);margin-right:6px}
+.note.warn{border:1.5px solid var(--sun)}
+
+/* 必吃 */
+.must{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 0 0}
+.must-label{font-size:12px;color:var(--sun);font-weight:700;margin-right:2px}
+.chip{font-size:13px;padding:3px 10px;border-radius:999px;border:1.5px solid var(--sun);background:var(--sun-soft)}
+.chip.maybe{border-style:dashed;background:transparent;color:var(--muted)}
+
+/* 高鐵路線 */
+.hsr{display:flex;align-items:center;gap:10px;margin:12px 0 0;padding:12px 14px;border-radius:14px;background:var(--sea-soft)}
+.hsr .st{display:flex;flex-direction:column;line-height:1.25;flex:none}
+.hsr .st b{font-family:var(--f-mono);font-size:20px;font-weight:500;color:var(--sea)}
+.hsr .st span{font-size:13px;color:var(--muted)}
+.hsr .track{flex:1;display:flex;align-items:center;min-width:24px}
+.hsr .dash{flex:1;border-top:2px dashed var(--sea);opacity:.7}
+.hsr .track svg{width:12px;height:12px;flex:none;fill:var(--sea)}
+
+/* 地圖按鈕 */
+.maplink{display:inline-flex;align-items:center;max-width:100%;margin:12px 0 0;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--fg);background:var(--bg);font-size:14px;overflow:hidden;transition:border-color .2s}
+.maplink:hover{border-color:var(--sea)}
+.maplink .pl{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;min-width:0}
+.maplink .pl span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.maplink svg{width:16px;height:16px;flex:none;fill:var(--sun)}
+.maplink .go{padding:6px 12px;background:var(--sea);color:var(--bg);font-weight:500;white-space:nowrap}
+
+/* 大家怎麼說 */
+.rev{margin:12px 0 0;border-top:1px dashed var(--line);padding-top:6px}
+.rev-btn{display:flex;align-items:center;gap:8px;width:100%;padding:8px 2px;border:0;background:none;cursor:pointer;text-align:left;font-size:15px;font-weight:500}
+.rev-btn .rating{font-family:var(--f-mono);font-size:13px;color:var(--sun);font-weight:500}
+.rev-btn .chev{margin-left:auto;width:18px;height:18px;stroke:var(--muted);stroke-width:2;fill:none;transition:transform .3s}
+.rev-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.rev-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .35s ease,visibility 0s linear .35s}
+.rev-panel.open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .35s ease,visibility 0s}
+.rev-inner{overflow:hidden}
+.rev ul{margin:2px 0 0;padding-left:20px;font-size:14px;color:var(--fg)}
+.rev li{margin:3px 0}
+.rev li::marker{color:var(--sea)}
+.rev-links{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 6px;font-size:13px}
+
+/* 右上角插圖按鈕 */
+.illo{position:absolute;top:-20px;right:-6px;width:64px;height:64px;padding:0;border:0;background:none;cursor:pointer;transform:rotate(6deg);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s;border-radius:16px}
+.illo svg{width:64px;height:64px;display:block;overflow:visible}
+.illo .play{position:absolute;right:-2px;bottom:0;width:20px;height:20px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 3px var(--surface)}
+.illo .play::after{content:"";position:absolute;left:8px;top:6px;border-left:6px solid var(--surface);border-top:4px solid transparent;border-bottom:4px solid transparent}
+@media (hover:hover){ .stop .card:hover .illo{transform:rotate(0deg) translateY(-4px)} }
+.illo:focus-visible{outline-offset:2px}
+
+/* 交通列 */
+.move{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;margin:14px 0 -4px;font-size:13px;color:var(--muted)}
+.move .ico{width:28px;height:28px;margin-left:-35px;border-radius:50%;display:grid;place-items:center;background:var(--bg);flex:none}
+.move .ico svg{width:20px;height:20px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.move.ride .ico svg{stroke:var(--sea)}
+.move.walk .ico svg{stroke:var(--sun)}
+.move.walk .mode{color:var(--sun)}
+.move.ride .mode{color:var(--sea)}
+.move .mode{font-weight:500}
+.move a{color:var(--muted);text-underline-offset:3px}
+.move a:hover{color:var(--sea)}
+.move.home{margin-top:18px}
+
+/* 備選清單 */
+.alts{margin:30px 0 0;padding:16px;border-radius:18px;background:var(--sea-soft)}
+.alts-title{margin:0;font-family:var(--f-title);font-size:20px;font-weight:700}
+.alts-sub{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.alt-filter{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
+.alt-filter button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 12px;font-size:13px;cursor:pointer}
+.alt-filter button[aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:var(--bg)}
+.alt-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin:12px 0 0;padding:0;list-style:none}
+.alt{display:flex;flex-direction:column;gap:6px;min-width:0;padding:12px 14px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.alt[hidden]{display:none}
+.alt-name{margin:0;font-weight:700;font-size:16px;line-height:1.4}
+.alt-tags{display:flex;flex-wrap:wrap;gap:4px}
+.alt-tags span{font-size:11.5px;padding:0 8px;border-radius:999px;background:var(--sea-soft);color:var(--sea);line-height:1.7}
+.alt-tags span.hot{background:var(--sun-soft);color:var(--sun)}
+.alt p{margin:0;font-size:13.5px}
+.alt .why b,.alt .con b{font-weight:500;margin-right:4px}
+.alt .why b{color:var(--sea)}
+.alt .con b{color:var(--sun)}
+.alt .hrs{color:var(--muted);font-family:var(--f-mono);font-size:12.5px}
+.alt .addr{margin:auto 0 0;padding:6px 8px;font-size:13px}
+
+/* 頁尾 */
+.foot{text-align:center;padding:56px 0 48px;color:var(--muted)}
+.foot p{margin:0;font-family:var(--f-title);font-size:20px;color:var(--fg)}
+.foot small{font-family:var(--f-mono);font-size:12px}
+
+/* ========== 7. 捲動進場動畫 ========== */
+.pre{opacity:0;transform:translateY(28px)}
+.pre .illo{opacity:0;transform:rotate(-12deg) translateY(14px)}
+.reveal-on{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+
+/* ========== 8. 點插圖後的全螢幕動畫 ========== */
+.ov{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:max(24px, env(safe-area-inset-top, 0px)) max(24px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(24px, env(safe-area-inset-left, 0px));background:var(--veil);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;transition:opacity .28s ease;cursor:pointer}
+.ov[hidden]{display:none}
+.ov.show{opacity:1}
+.ov:focus{outline:none}
+.stage{width:min(92vw,460px)}
+.stage svg{width:100%;height:auto;max-height:72vh;display:block;overflow:visible}
+.ov.show .stage{animation:zoomIn .4s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes zoomIn{from{transform:scale(.82);opacity:0}to{transform:none;opacity:1}}
+.ov-bar{width:120px;height:4px;border-radius:4px;background:color-mix(in srgb,var(--sun) 22%,transparent);overflow:hidden}
+.ov-bar span{display:block;height:100%;background:var(--sun);border-radius:4px;transform-origin:left center}
+@keyframes shrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.ov-hint{margin:0;font-size:13px;color:var(--muted)}
+
+/* ---- SVG 共用樣式（全部用 CSS 變數，深淺色都好看） ---- */
+.ic{fill:none;stroke:var(--sea);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f-surf{fill:var(--surface)} .f-seasoft{fill:var(--sea-soft)} .f-sunsoft{fill:var(--sun-soft)}
+.f-sun{fill:var(--sun)} .f-sea{fill:var(--sea)} .f-fg{fill:var(--fg);stroke:none} .f-bg{fill:var(--bg)}
+.st-sun{stroke:var(--sun)} .st-line{stroke:var(--line)} .st-muted{stroke:var(--muted)}
+.no-st{stroke:none}
+.t{font-family:var(--f-title);fill:var(--fg);stroke:none;font-weight:700}
+.tm{font-family:var(--f-mono);fill:var(--muted);stroke:none;font-weight:500}
+
+/* 動畫積木 */
+.ap{animation:fadeIn .45s ease var(--d,0s) both}
+.pop{transform-box:fill-box;transform-origin:center bottom;animation:pop .5s cubic-bezier(.3,1.6,.5,1) var(--d,0s) both}
+.drop{animation:drop .75s cubic-bezier(.3,.8,.4,1) var(--d,0s) both}
+.mvx{animation:moveX var(--t,3s) linear var(--d,0s) both}
+.slide{animation:moveX var(--t,.7s) cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+.walk{animation:bob .32s ease-in-out infinite alternate}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw var(--t,1.4s) ease-in-out var(--d,0s) both}
+.steam{animation:steam 1.8s ease-in-out var(--d,0s) infinite both}
+.flow{animation:flow var(--t,2.4s) linear infinite}
+.lantern{fill:var(--sea-soft);animation:lightUp .4s ease var(--d,0s) both}
+.swing{transform-box:view-box;animation:swing 1.1s ease-in-out infinite alternate}
+.neck{transform-box:view-box;transform-origin:172px 154px;animation:neck 1.6s ease-in-out infinite alternate}
+.toss{transform-box:fill-box;transform-origin:center;animation:toss 1.3s cubic-bezier(.3,.6,.4,1) var(--d,2.6s) both}
+.flash{opacity:0;animation:flash .5s ease-out var(--d,2s) both}
+.float{animation:float 1.4s ease-in-out infinite alternate}
+.sink{animation:sink .7s ease-in-out var(--d,1.2s) both}
+.sunset{animation:sunset 4s ease-in var(--d,.2s) both}
+.horse1{animation:float .8s ease-in-out infinite alternate}
+.horse2{animation:float .8s ease-in-out -.8s infinite alternate}
+.flag{transform-box:fill-box;transform-origin:left center;animation:flag .6s ease-in-out infinite alternate}
+.lidfly{transform-box:fill-box;transform-origin:center;animation:lidfly .8s cubic-bezier(.3,.7,.4,1) var(--d,.4s) both}
+.lift{animation:lift 1.3s cubic-bezier(.4,0,.2,1) var(--d,.5s) both}
+.print{animation:printOut 1s cubic-bezier(.2,.8,.2,1) var(--d,2s) both}
+.paddle{transform-box:fill-box;transform-origin:50% 0;animation:paddle .9s ease-in-out infinite alternate}
+.pour{transform-box:fill-box;transform-origin:100% 100%;animation:pour .6s ease-out var(--d,1.4s) both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeOut{to{opacity:0}}
+@keyframes pop{0%{opacity:0;transform:scale(.2)}70%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
+@keyframes drop{0%{opacity:0;transform:translateY(-170px)}15%{opacity:1}65%{transform:translateY(0)}80%{transform:translateY(-10px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes moveX{from{transform:translateX(var(--x0,0px))}to{transform:translateX(var(--x1,0px))}}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fillIn{to{fill-opacity:1}}
+@keyframes steam{0%{opacity:0;transform:translateY(6px)}35%{opacity:.85}100%{opacity:0;transform:translateY(-16px)}}
+@keyframes flow{from{transform:translateX(0)}to{transform:translateX(-40px)}}
+@keyframes lightUp{to{fill:var(--sun)}}
+@keyframes swing{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+@keyframes neck{from{transform:rotate(-3deg)}to{transform:rotate(4deg)}}
+@keyframes toss{0%{transform:none}50%{transform:translateY(-70px) rotate(200deg)}100%{transform:none}}
+@keyframes flash{0%{opacity:0}25%{opacity:.9}100%{opacity:0}}
+@keyframes float{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+@keyframes sink{to{transform:translateY(21px)}}
+@keyframes sunset{to{transform:translateY(74px)}}
+@keyframes flag{from{transform:scaleX(1)}to{transform:scaleX(.7)}}
+@keyframes lidfly{0%{transform:none}60%{transform:translate(70px,-62px) rotate(28deg)}100%{transform:translate(84px,-40px) rotate(18deg)}}
+@keyframes lift{to{transform:translateY(-48px)}}
+@keyframes printOut{from{opacity:0;transform:translateY(-44px)}to{opacity:1;transform:none}}
+@keyframes paddle{from{transform:rotate(-20deg)}to{transform:rotate(16deg)}}
+@keyframes pour{from{transform:rotate(0deg)}to{transform:rotate(-38deg)}}
+
+/* ========== 9. 尊重「減少動態」 ========== */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .hero-wave svg,.pulse::after{animation:none}
+  .pre,.pre .illo{opacity:1;transform:none}
+  .stage *,.stage *::before,.stage *::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important}
+  .ov.show .stage{animation:none}
+  .rev-panel,.rev-btn .chev,.illo{transition:none}
+}
+@media (max-width:380px){
+  .facts dd{font-size:13px}
+  .day-date{font-size:34px}
+  .name{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">KAOHSIUNG · 2026</p>
+    <h1>出<span class="k">ㄎㄧˋ</span>勝<br><span class="s">高雄、台南遊</span></h1>
+    <p class="sub">南下高雄的四天三夜。逛糖廠、泡湯、台南一日遊、鹽埕吃一輪。</p>
+    <p class="tip">點地址可以直接開 Google 地圖導航；點右上角小插圖看動畫</p>
+    <dl class="facts">
+      <div><dt>日期</dt><dd>11/27–11/30</dd></div>
+      <div><dt>天數</dt><dd>4 天 3 夜</dd></div>
+      <div><dt>出發倒數</dt><dd class="cd" id="countdown">—</dd></div>
+    </dl>
+  </div>
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1600 26" preserveAspectRatio="none">
+      <path d="M0 14 Q50 4 100 14 T200 14 T300 14 T400 14 T500 14 T600 14 T700 14 T800 14 T900 14 T1000 14 T1100 14 T1200 14 T1300 14 T1400 14 T1500 14 T1600 14"/>
+      <path d="M0 18 Q70 10 140 18 T280 18 T420 18 T560 18 T700 18 T840 18 T980 18 T1120 18 T1260 18 T1400 18 T1540 18 T1680 18"/>
+    </svg>
+  </div>
+</header>
+
+<nav class="daynav" aria-label="行程日期">
+  <div class="wrap" id="daynav"></div>
+</nav>
+
+<main class="wrap">
+  <div id="days"></div>
+</main>
+
+<footer class="foot">
+  <small>KAOHSIUNG · 11/27 – 11/30</small>
+</footer>
+
+<div class="ov" id="ov" hidden role="dialog" aria-modal="true" aria-label="小動畫" tabindex="-1">
+  <div class="stage" id="stage"></div>
+  <div class="ov-bar" aria-hidden="true"><span id="ovbar"></span></div>
+  <p class="ov-hint">點任何地方可以提前關閉</p>
+</div>
+
+<script>
+/* =========================================================
+   一、行程資料：改行程時只要改這裡
+   ---------------------------------------------------------
+   每一站：
+     go      從上一站怎麼過來："ride" 騎車（預設）、"walk" 走路、null 不顯示
+     name    卡片標題        map   Google 地圖搜尋用的名稱
+     addr    地址（點了直接開 Google 地圖導航）
+     hours   營業／開放時間  opt   true＝可選（虛線卡片）
+     add     true＝網友推薦、我幫你加的
+     note    備註            warn  注意（橘框）
+     icon / anim / say  插圖、動畫、動畫最後一句話
+   每一天：start / end 填 HOME 會自動加「從大社出發／回大社」
+   ========================================================= */
+const HOME = "高雄市大社區大吉路16巷60號";
+
+const TRIP = [
+  {
+    id: "d1127", date: "11/27", dow: "週五", title: "左營接媽媽去瑞豐",
+    items: [
+      { go: null, time: "19:29 – 21:20 · 高鐵", name: "媽媽搭高鐵南下", map: "高鐵左營站",
+        addr: "高雄市左營區高鐵路105號",
+        hsr: ["19:29", "板橋", "21:20", "左營"], icon: "train", anim: "hsrGo" },
+      { time: "約 21:40 · 宵夜", name: "瑞豐夜市", map: "瑞豐夜市", meal: true,
+        addr: "高雄市左營區裕誠路與南屏路口（巨蛋旁）", hours: "約 17:00–24:00，週一、週三公休",
+        must: ["馬鈴薯", "蔥油餅", "鳳爪", "?月亮蝦餅？"], icon: "lantern", anim: "market", say: "rf",
+        reviews: { points: [
+          "11/27 週五有開；接近午夜有些攤會先收",
+          "馬鈴薯有兩攤常被推薦，都在第三排：首爾馬鈴薯塔（長串旋轉炸馬鈴薯）、薯小二馬鈴薯煎餅（加起司煎到酥脆）",
+          "攤位是棋盤式排列，一排一排逛比較不會漏"
+        ], src: "https://travel.yam.com/article/128235" } }
+    ]
+  },
+  {
+    id: "d1128", date: "11/28", dow: "週六", title: "糖廠、肉燥飯和泡湯",
+    start: HOME,
+    pack: ["水", "一套衣服（含內衣褲）", "毛巾", "拖鞋", "洗面乳"],
+    items: [
+      { time: "09:00 · 早餐", name: "丹丹漢堡 橋頭店", map: "丹丹漢堡 橋頭店", meal: true,
+        addr: "高雄市橋頭區成功南路47號", hours: "07:00–21:00，週三公休", tags: ["南部限定"],
+        icon: "burger", anim: "burger",
+        reviews: { points: [
+          "只在南部開的平價速食，中西合併是它的特色",
+          "經典點法：漢堡或炸雞配麵線羹",
+          "只收現金"
+        ], src: "https://cpok.tw/63912" } },
+      { time: "10:00 – 11:00", name: "橋頭糖廠", map: "橋頭糖廠",
+        addr: "高雄市橋頭區糖廠路24號", hours: "園區 08:30–17:00，免門票",
+        tags: ["免門票", "拍照"], icon: "sugar", anim: "sugar",
+        reviews: { points: [
+          "範圍很大，逛一圈要一小時以上，可以租腳踏車",
+          "台糖展售中心賣台糖冰淇淋和冰棒，有紅豆、花生、鳳梨、可可等口味",
+          "五分車只有假日開，全票 80 元；11/28 週六有機會坐到",
+          "十鼓那一區幾乎沒有遮陽"
+        ], src: "https://www.bring-you.info/zh-tw/ciaotou-sugar-refinery" } },
+      { time: "11:15 · 早午餐", name: "楊寶寶蒸餃", map: "楊寶寶蒸餃 朝明路", meal: true,
+        addr: "高雄市楠梓區朝明路106號", hours: "每天 11:00–01:00",
+        tags: ["必比登"],
+        note: "11:00 才開門，吃少一點，下一站是前金肉燥飯", icon: "steamer", anim: "bun", say: "蒸餃現包現蒸！",
+        reviews: { points: [
+          "米其林必比登推介，1993 年從小攤做起",
+          "推薦花素蒸餃（黑木耳、青江菜、粉絲、豆乾）和清燉牛肉湯",
+          "價格實惠、人潮多，只收現金，有停車場"
+        ], src: "https://guide.michelin.com/tw/zh_TW/kaohsiung-region/kaohsiung/restaurant/yang-bao-bao-nanzih" } },
+      { time: "12:45 · 午餐", name: "前金肉燥飯", map: "前金肉燥飯", meal: true,
+        addr: "高雄市前金區大同二路26號", hours: "週六 07:30–14:00（賣完就收），週日公休",
+        tags: ["必比登"],
+        warn: "週六 14:00 就收，而且常提早賣完，不要拖太晚；如果收了改吃月娥鴨肉（前金區自強二路72號，11:00–19:30）", icon: "bowl", anim: "rice",
+        reviews: { points: [
+          "人氣招牌是魚鬆肉燥飯，用虱目魚手工炒的魚鬆",
+          "也推薦虱目魚肚湯、滷豆腐",
+          "只收現金"
+        ], src: "https://guide.michelin.com/tw/zh_TW/kaohsiung-region/kaohsiung/restaurant/cianjin-brasied-pork-rice" } },
+      { time: "13:30 – 15:30", name: "駁二藝術特區", map: "駁二藝術特區",
+        addr: "高雄市鹽埕區大勇路1號", hours: "週五至日 10:00–20:00", tags: ["文創", "散步"],
+        icon: "warehouse", anim: "pier2",
+        reviews: { points: [
+          "高雄遊客人次最多的景點，週末人很多",
+          "必逛：棧貳庫 KW2 的小店、後方的白色旋轉木馬、蓬萊倉庫旁的草地裝置",
+          "展覽每月換；傍晚去比較涼，還能看夜景"
+        ], src: "https://www.bring-you.info/zh-tw/the-pier-2-art-center" } },
+      { skip: true, time: "14:00 – 15:30", name: "愛河 SUP", map: "愛河灣 光榮碼頭",
+        addr: "高雄市苓雅區愛河灣（光榮碼頭一帶）",
+        note: "多帶一套衣服，落水時可以更換",
+        icon: "sup", anim: "sup",
+        reviews: { points: [
+          "在愛河灣的非動力水域活動區划，有救生員待命",
+          "下水要穿救生衣，並掃 QR 碼實名登記",
+          "沒有自己的板子就找業者帶團，多半要先預約，假日常有最低人數"
+        ], src: "https://www.cna.com.tw/news/aloc/202304030063.aspx" } },
+      { time: "16:00 – 20:00 · 含晚餐", name: "女人女人三溫暖", map: "女人女人三溫暖", meal: true,
+        addr: "高雄市新興區復興一路63號", hours: "約 08:30–24:00",
+        note: "自備拖鞋會比較舒服、攜帶毛巾",
+        icon: "pool", anim: "sauna",
+        reviews: { rating: "4.3", points: [
+          "女性專屬三溫暖，有熱池、烤箱、蒸氣室和上下鋪休息區",
+          "入場約 $500 可待 12 小時，另有搓背、按摩等加價服務",
+          "餐點最常被提到的是麻油雞鍋，份量大；也有四物雞湯"
+        ], src: "https://travel.yam.com/article/137964" } },
+      { time: "20:15 · 宵夜", name: "東港生魚片", map: "東港生魚片 鳳山 成功路28號", meal: true, nomap: true,
+        icon: "sashimi", anim: "sashimi", say: "東港生魚片，開吃！" }
+    ]
+  },
+  {
+    id: "d1129", date: "11/29", dow: "週日", title: "台南一日遊",
+    start: HOME, end: HOME,
+    items: [
+      { time: "09:30 · 早餐", name: "旗哥牛肉湯", map: "旗哥牛肉湯", meal: true,
+        addr: "台南市北區中華北路一段126號", hours: "週日 07:00–24:00",
+        tags: ["台南必吃"],
+        icon: "bowl", anim: "beef",
+        reviews: { rating: "4.2", points: [
+          "不少老饕把它排進台南牛肉湯前三名",
+          "湯頭偏甜，是台南口味；附的肉燥飯讓很多人一再回訪",
+          "有專屬停車場，可以免費停"
+        ], src: "https://travel.yam.com/article/128358" } },
+      { opt: true, add: true, time: "10:30 · 順路", name: "台南孔廟", map: "臺南孔廟",
+        addr: "台南市中西區南門路2號", hours: "08:30–17:30",
+        tags: ["古蹟"] },
+      { go: "walk", time: "11:00 – 12:00", name: "又又美 FotoShop", map: "又又美 FotoShop",
+        addr: "台南市中西區南門路15號", hours: "11:00–18:00，週二公休",
+        tags: ["底片", "咖啡", "拍照"],
+        note: "營業資料是 2021 年的，出發前看一下粉專確認", icon: "camera", anim: "camera",
+        reviews: { points: [
+          "牆面和櫃檯用富士、柯達的底片盒裝飾，二樓擺皮箱、點唱機、打字機",
+          "飲料以氣泡飲為主，用底片盒的顏色命名，也有簡單餐點",
+          "不接受電話預約，直接去"
+        ], src: "https://travel.yam.com/article/122251" } },
+      { go: "walk", time: "12:00 · 飲料", name: "阿美嬤紅茶奶 開山店", map: "阿美嬤紅茶奶 開山店",
+        addr: "台南市中西區開山路13號", hours: "10:00–21:30", tags: ["台南紅茶"],
+        icon: "tea", anim: "tea",
+        reviews: { points: [
+          "招牌紅茶牛奶（冰 $80），網友說紅茶不苦不澀，加牛奶很順口；甜度固定不能調",
+          "特濃紅茶（冰 $60）茶味重，帶一點決明子的古早香",
+          "雷夢紅茶用新鮮檸檬，清爽解膩，建議買了早點喝",
+          "有家庭號大瓶裝，可以買回去當伴手禮"
+        ], src: "https://www.marieclaire.com.tw/lifestyle/taste/89866/amei-ma-hong-cha-nai" } },
+      { add: true, time: "12:15 · 午餐", name: "國華街・永樂市場", map: "永樂市場 台南", meal: true,
+        addr: "台南市中西區國華街三段（永樂市場一帶）",
+        must: ["金得春捲", "富盛號碗粿", "阿松割包", "?福昇鱔魚意麵"], icon: "lantern", anim: "market", say: "gh",
+        reviews: { points: [
+          "金得春捲：民族路三段19號，招牌皇帝豆春捲",
+          "富盛號碗粿：民族路三段11號，碗粿、浮水魚羹",
+          "阿松割包：國華街三段181號，瘦肉包",
+          "福昇小食：國華街三段161號，乾炒鱔魚意麵",
+          "週日人很多，各攤營業時間不一樣，排太久就換下一攤"
+        ], src: "https://supertaste.tvbs.com.tw/food/333898" } },
+      { go: "walk", time: "13:30 · 甜點", name: "豆腐洋行 國華店", map: "豆腐洋行 國華店", meal: true,
+        addr: "台南市中西區國華街二段83號", hours: "週六日 12:00–22:00",
+        icon: "ice", anim: "ice", say: "芋泥紅豆芋圓冰！",
+        reviews: { points: [
+          "招牌芋泥紅豆芋圓冰（$90），有芋泥、芋圓、地瓜圓和泰奶布丁",
+          "豆腐冰現做、口感Q彈；也有燒麻糬和杏仁茶"
+        ], src: "https://www.beauty321.com/post/49390" } },
+      { time: "14:30 – 15:30", name: "安平古堡", map: "安平古堡",
+        addr: "台南市安平區國勝路82號", hours: "08:30–17:30",
+        tags: ["古蹟", "要門票"],
+        icon: "castle", anim: "castle",
+        reviews: { points: [
+          "荷蘭統治時期所建，台灣最古老的城堡之一",
+          "17:30 關門，下午來剛好；旁邊就是安平老街"
+        ], src: "https://travel.yam.com/article/140792" } },
+      { go: "walk", time: "15:30 – 16:30", name: "安平老街", map: "安平老街 延平街",
+        addr: "台南市安平區延平街",
+        icon: "lantern", anim: "market", say: "ap" },
+      { time: "16:45 – 17:30 · 夕陽", name: "漁光島", map: "漁光島 月牙灣",
+        addr: "台南市安平區漁光路（漁光島月牙灣）", hours: "全天開放；11 月底日落約 17:10",
+        note: "海邊風大，帶件薄外套",
+        icon: "sunset", anim: "sunset",
+        reviews: { points: [
+          "約 1.5 公里的半月形海岸，常被稱為台南最浪漫的海灘",
+          "日落塔是用漂流木和蚵架做的裝置藝術，很適合拍夕陽剪影"
+        ], src: "https://travel.yam.com/article/111431" } },
+      { time: "17:45 · 夜景", name: "安億橋", map: "安億橋 台南",
+        addr: "台南市安平區安億路（跨安平運河）",
+        note: "你截圖裡的「安橋 ABV Facility Services」應該是 Google 地圖選錯點，我改成安億橋；如果你想去的是別的地方再跟我說",
+        icon: "bridge", anim: "bridge",
+        reviews: { points: [
+          "承天橋到安億橋之間的運河今年春天辦過「光之運河」燈光秀（已在 4/26 結束），現在晚上是一般橋燈"
+        ], src: "https://udn.com/news/story/7266/9450159" } },
+      { add: true, time: "18:30 – 20:00 · 晚餐", name: "海安路藝術街・神農街", map: "神農街 台南", meal: true,
+        addr: "台南市中西區海安路二段／神農街",
+        tags: ["夜景", "晚餐"], icon: "artwall", anim: "art",
+        note: "附近的赤崁樓開到 21:00，想多看一個古蹟可以接著去" }
+    ],
+    alts: {
+      title: "備選清單",
+      sub: "不想去、沒開或下雨時，從這裡換。點地址一樣可以直接導航。",
+      list: [
+        { name: "赤崁樓", tags: ["熱門", "晚上也開"], hours: "08:30–21:00", addr: "台南市中西區民族路二段212號",
+          why: "荷蘭時期的古樓，晚上打燈很漂亮，離海安路很近。", con: "要門票，週末人多。" },
+        { name: "林百貨", tags: ["熱門", "雨天可去", "免門票"], hours: "11:00–21:00", addr: "台南市中西區忠義路二段63號",
+          why: "1932 年的老百貨，頂樓有神社遺跡，買伴手禮方便。", con: "以逛街為主，不愛逛街的人會無聊。" },
+        { name: "億載金城", tags: ["熱門", "古蹟"], hours: "08:30–17:30", addr: "台南市安平區光州路3號",
+          why: "全台第一座西式砲台，離漁光島很近，可以接在古堡後面。", con: "跟安平古堡性質很像，兩個選一個就好。" },
+        { name: "安平樹屋", tags: ["熱門"], hours: "08:30–17:30", addr: "台南市安平區古堡街108號",
+          why: "榕樹氣根包住老倉庫，很特別，就在安平老街旁。", con: "要門票，逛 30 分鐘就夠。" },
+        { name: "四草綠色隧道", tags: ["熱門", "大自然"], hours: "08:00–16:00", addr: "台南市安南區大眾路360號",
+          why: "坐竹筏穿過紅樹林水道，台南版亞馬遜。", con: "16:00 就結束，和安平同一天要早點去；週日要排隊。" },
+        { name: "西市場（大菜市）", tags: ["新整修", "雨天可去"], hours: "攤位時間各不同", addr: "台南市中西區西門路二段與正興街交界",
+          why: "1905 年的老市場重新整修，攤位很多，離國華街走路就到。", con: "各攤營業時間不一，有些週日休。" },
+        { name: "here Kyoto 台南", tags: ["新開", "咖啡"], hours: "07:30–17:00，週三休", addr: "台南市中西區開山路3巷21號",
+          why: "京都咖啡店的海外第一間，招牌可麗露沾咖啡，在又又美附近。", con: "和又又美都是咖啡店，選一間就好。" },
+        { name: "安平出張所", tags: ["冷門", "手作"], hours: "10:00–18:00", addr: "台南市安平區古堡街196號",
+          why: "可以 DIY 生日御守鹽，還有水豚君，適合買小紀念品。", con: "店不大，停留時間短。" },
+        { name: "鯤鯓湖紅樹林生態觀光船", tags: ["冷門", "大自然"], hours: "週六日 13:00–17:00", addr: "台南市南區鯤鯓路102巷",
+          why: "坐船看紅樹林和海，還有現烤鮮蚵，週日剛好有開。", con: "要多騎一段到南區，排進去就得拿掉一個安平景點。" },
+        { name: "信義街硓𥑮石黃宅", tags: ["冷門", "老宅"], hours: "週五至日 13:00–18:00", addr: "台南市中西區信義街46巷15號",
+          why: "百年老宅改的小美術館，很安靜，在神農街附近。", con: "開放日以臉書公告為準，展期之間可能沒開。" },
+        { name: "黑橋牌香腸博物館", tags: ["冷門", "雨天可去", "免費"], hours: "09:30–17:30，週一休", addr: "台南市南區新忠路2-1號",
+          why: "免費參觀，了解香腸怎麼做，可以試吃、買伴手禮。", con: "在南區，不太順路。" },
+        { name: "司法博物館", tags: ["冷門", "雨天可去", "免費"], hours: "09:00–17:00，週一休", addr: "台南市中西區府前路一段307號",
+          why: "日治時期的法院古蹟，建築很漂亮，免門票。", con: "以參觀建築為主，停留約 40 分鐘。" }
+      ],
+      src: ["https://travel.yam.com/article/140792", "https://travel.yam.com/article/138450", "https://travel.yam.com/article/137774"]
+    }
+  },
+  {
+    id: "d1130", date: "11/30", dow: "週一", title: "鹽埕吃一輪",
+    start: HOME,
+    items: [
+      { time: "08:30 · 早餐", name: "丹丹漢堡 右昌店", map: "丹丹漢堡 右昌店", meal: true,
+        addr: "高雄市楠梓區右昌街255號", hours: "08:00–20:00，週三公休",
+        tags: ["南部限定"],
+        note: "楠梓區的門市是右昌店；你常去的是別間的話再跟我說", icon: "burger", anim: "burger",
+        reviews: { points: [
+          "只在南部開的平價速食，中西合併是它的特色",
+          "經典點法：漢堡或炸雞配麵線羹",
+          "網友比較時常說：炸雞各家有拚，但漢堡還是丹丹厲害"
+        ], src: "https://cpok.tw/63912" } },
+      { time: "10:00 – 11:30", name: "鹽埕第一公有零售市場・大溝頂", map: "鹽埕第一公有零售市場",
+        addr: "高雄市鹽埕區瀨南街141之7號", hours: "週一 07:00–12:00",
+        warn: "週一中午就收，一定要早上去", icon: "lantern", anim: "market", say: "yc",
+        reviews: { points: [
+          "孫家肉粽：大仁路151巷6號，南部粽配味噌湯",
+          "阿綿手工麻糬：新樂街198-27號，伴手禮",
+          "旗魚食製所：新樂街213號之19，旗魚製品和咖啡",
+          "三郎麵包店：新樂街198-8號，奶油餐包",
+          "週三到週日下午還有晚市，週一、週二只有早上"
+        ], src: "https://valerieblog.tw/yencheng/" } },
+      { time: "11:45 · 午餐", name: "月娥鴨肉", map: "月娥鴨肉", meal: true,
+        addr: "高雄市前金區自強二路72號", hours: "11:00–19:30，週三公休",
+        note: "你寫的「月鵝」應該是「月娥鴨肉」", icon: "duck", anim: "duck",
+        reviews: { points: [
+          "煙燻鴨肉鹹香軟嫩，1/4 隻後腿約 130 元",
+          "鴨肉冬粉（乾）可以換米粉、麵或粄條",
+          "用餐時間要排隊叫號，內用外帶都要等"
+        ], src: "https://nellydyu.tw/blog/post/yuee" } },
+      { time: "13:00 · 甜點", name: "高雄婆婆冰（老店）", map: "高雄婆婆冰 七賢三路135號", meal: true,
+        addr: "高雄市鹽埕區七賢三路135號", hours: "約 09:00–24:00",
+        icon: "ice", anim: "ice", say: "綜合冰＋牛奶冰！",
+        reviews: { rating: "4.2", points: [
+          "招牌綜合冰：當季水果、芋泥、紅綠豆泥和各色蜜餞",
+          "另一個名物是紅豆雞蛋牛奶冰，會加一整顆生蛋黃",
+          "七賢三路上有兩家，98-12 號是有冷氣的新旗艦店"
+        ], src: "https://supertaste.tvbs.com.tw/food/316377" } },
+      { time: "14:00 – 16:30", name: "壽山情人觀景台", map: "壽山情人觀景台",
+        addr: "高雄市鼓山區忠義路30號", hours: "24 小時開放",
+        tags: ["免費", "看海港"],
+        warn: "壽山動物園週一休園（11/30 是週一），所以換成這裡", icon: "view", anim: "view",
+        reviews: { rating: "4.5", points: [
+          "在忠烈祠旁，可以看山海日景和夜景",
+          "有 32 種語言的「我愛你」牌子、LOVE 傳聲筒和獼猴石雕",
+          "獼猴不怕人，手上的食物和塑膠袋要拿好"
+        ], src: "https://supertaste.tvbs.com.tw/amp/hot/350256" } },
+      { time: "17:30 前", name: "高鐵領票", map: "高鐵左營站",
+        addr: "高雄市左營區高鐵路105號", note: "到站先去售票窗口或自動售票機領票，再送媽媽進站" },
+      { go: null, time: "17:55 – 19:20 · 高鐵", name: "送媽媽到左營搭高鐵", map: "高鐵左營站",
+        addr: "高雄市左營區高鐵路105號",
+        hsr: ["17:55", "左營", "19:20", "板橋"], icon: "train", anim: "hsrBack" }
+    ],
+    alts: {
+      title: "備選清單",
+      sub: "觀景台不想去，可以換成這些。點地址一樣可以直接導航。",
+      list: [
+        { name: "壽山動物園", tags: ["週一休園"], hours: "週二至日 09:00–17:00（16:30 最後入園）", addr: "高雄市鼓山區萬壽路350號",
+          why: "原本想去的地方，下次週二到週日再來。", con: "11/30 週一沒開。" },
+        { name: "西子灣", tags: ["看海", "免費"], hours: "全天", addr: "高雄市鼓山區蓮海路",
+          why: "在壽山山腳，看海吹風，傍晚有夕陽。", con: "看夕陽要等到 17:00 左右，會趕不上高鐵。" }
+      ],
+      src: ["https://www.taiwan.net.tw/m1.aspx?id=2544&sNo=0001121"]
+    }
+  }
+];
+
+/* 出發時間（用來算倒數） */
+const DEPART = new Date("2026-11-27T19:29:00+08:00");
+const TRIP_END = new Date("2026-11-30T23:59:59+08:00");
+
+/* =========================================================
+   二、小工具
+   ========================================================= */
+const enc = s => encodeURIComponent(s);
+const clean = s => (s || "").replace(/（[^）]*）/g, " ").replace(/\s+/g, " ").trim();
+const qOf = c => clean(`${c.map || c.name} ${c.addr || ""}`);
+const mapURL = q => `https://www.google.com/maps/search/?api=1&query=${enc(q)}`;
+const navURL = q => `https://www.google.com/maps/dir/?api=1&destination=${enc(q)}`;
+const dirURL = (a, b, mode) => `https://www.google.com/maps/dir/?api=1&origin=${enc(a)}&destination=${enc(b)}&travelmode=${mode}`;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+  set(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+};
+
+/* =========================================================
+   三、卡片上的線條插圖（64×64）
+   ========================================================= */
+const ICONS = {
+  train: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M18 54 l6 -7 M46 54 l-6 -7 M12 58 h40"/>
+    <rect x="14" y="8" width="36" height="40" rx="13" class="f-surf"/>
+    <path d="M20 22 q12 -8 24 0 v6 h-24z" class="f-seasoft"/>
+    <circle cx="22" cy="38" r="3" class="f-sunsoft"/><circle cx="42" cy="38" r="3" class="f-sunsoft"/>
+    <path d="M28 13 h8"/></svg>`,
+  lantern: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M32 4 v6"/><rect x="24" y="10" width="16" height="5" rx="2" class="f-surf"/>
+    <ellipse cx="32" cy="31" rx="16" ry="16" class="f-sunsoft"/>
+    <path d="M32 15 q-9 16 0 32 M32 15 q9 16 0 32 M17 31 h30"/>
+    <rect x="25" y="46" width="14" height="5" rx="2" class="f-surf"/><path d="M29 51 v8 M32 51 v10 M35 51 v8"/></svg>`,
+  bowl: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M40 6 l-10 24 M48 8 l-14 23"/>
+    <path d="M10 32 q22 -14 44 0z" class="f-surf"/>
+    <path d="M24 27 q5 -3 9 0 q4 -3 7 1" class="st-sun"/>
+    <path d="M8 32 h48 q0 22 -24 22 q-24 0 -24 -22z" class="f-seasoft"/>
+    <path d="M24 54 h16 l-2 5 h-12z" class="f-surf"/></svg>`,
+  pool: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M22 22 q-4 -5 0 -10 t0 -10 M32 24 q-4 -5 0 -10 t0 -10 M42 22 q-4 -5 0 -10 t0 -10" class="st-sun"/>
+    <path d="M6 32 h52 v14 q0 10 -10 10 h-32 q-10 0 -10 -10z" class="f-surf"/>
+    <path d="M6 38 q6 -4 13 0 t13 0 t13 0 t13 0 v8 q0 10 -10 10 h-32 q-10 0 -10 -10z" class="f-seasoft"/></svg>`,
+  burger: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M10 30 q0 -20 22 -20 q22 0 22 20z" class="f-sunsoft"/>
+    <path d="M24 18 l1 1 M34 15 l1 1 M42 21 l1 1 M30 23 l1 1"/>
+    <path d="M8 34 q6 -5 12 0 t12 0 t12 0 t12 0" class="f-seasoft"/>
+    <rect x="9" y="36" width="46" height="8" rx="4" class="f-sun st-sun"/>
+    <path d="M10 46 h44 q0 10 -10 10 h-24 q-10 0 -10 -10z" class="f-sunsoft"/></svg>`,
+  sashimi: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <ellipse cx="32" cy="42" rx="28" ry="12" class="f-surf"/>
+    <path d="M14 40 q6 -14 14 -4z M24 36 q8 -14 14 -2z M36 36 q10 -12 14 2z" class="f-sunsoft"/>
+    <path d="M18 38 l5 -4 M29 34 l5 -4 M41 34 l5 -3" class="st-sun"/>
+    <circle cx="46" cy="44" r="3.5" class="f-seasoft"/><path d="M48 8 a8 8 0 1 0 6 12 a6 6 0 1 1 -6 -12z" class="f-sunsoft"/></svg>`,
+  steamer: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M22 14 q-3 -4 0 -8 M32 13 q-3 -4 0 -8 M42 14 q-3 -4 0 -8" class="st-sun"/>
+    <path d="M8 30 q24 -20 48 0z" class="f-sunsoft"/><circle cx="32" cy="18" r="3" class="f-surf"/>
+    <rect x="8" y="30" width="48" height="24" rx="6" class="f-sunsoft"/>
+    <path d="M8 38 h48 M20 38 v16 M32 38 v16 M44 38 v16"/></svg>`,
+  tea: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M38 2 l-6 16" class="st-sun"/>
+    <path d="M14 18 h36 l-4 40 h-28z" class="f-surf"/>
+    <path d="M16 30 h32 l-3 28 h-26z" class="f-sunsoft"/>
+    <rect x="22" y="36" width="7" height="7" rx="1.5" class="f-surf"/><rect x="33" y="40" width="7" height="7" rx="1.5" class="f-surf"/>
+    <path d="M12 18 h40"/></svg>`,
+  warehouse: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M6 56 v-28 l26 -18 l26 18 v28z" class="f-surf"/>
+    <path d="M22 56 v-14 a10 10 0 0 1 20 0 v14z" class="f-seasoft"/>
+    <circle cx="32" cy="27" r="4" class="f-sunsoft"/><path d="M4 56 h56"/></svg>`,
+  sugar: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <circle cx="44" cy="8" r="4" class="f-surf st-muted"/><circle cx="50" cy="4" r="3" class="f-surf st-muted"/>
+    <rect x="38" y="14" width="10" height="42" class="f-sunsoft"/><path d="M38 22 h10 M38 30 h10"/>
+    <path d="M4 56 v-22 l11 -8 v8 l11 -8 v8 l12 -8 v30z" class="f-surf"/>
+    <path d="M9 42 h6 v6 h-6z M21 42 h6 v6 h-6z" class="f-seasoft"/><path d="M2 56 h60"/>
+    <rect x="52" y="34" width="8" height="14" rx="4" class="f-sun st-sun"/><path d="M56 48 v6" class="st-sun"/></svg>`,
+  sup: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M44 4 l-14 40" /><path d="M27 40 l6 4 l-2 8 l-6 -4z" class="f-sunsoft"/>
+    <path d="M6 46 q26 -8 52 0 q-26 7 -52 0z" class="f-sunsoft"/>
+    <path d="M4 56 q6 -4 12 0 t12 0 t12 0 t12 0 t10 0" /></svg>`,
+  camera: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M22 18 l4 -7 h12 l4 7z" class="f-surf"/>
+    <rect x="6" y="18" width="52" height="34" rx="7" class="f-seasoft"/>
+    <circle cx="32" cy="35" r="11" class="f-surf"/><circle cx="32" cy="35" r="5" class="f-sunsoft"/>
+    <circle cx="49" cy="25" r="2.5" class="f-sun no-st"/><path d="M10 26 h8"/></svg>`,
+  ice: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M14 34 q2 -24 18 -24 q16 0 18 24z" class="f-surf"/>
+    <circle cx="26" cy="22" r="3" class="f-sun no-st"/><circle cx="36" cy="18" r="3" class="f-sun no-st"/><circle cx="38" cy="28" r="3" class="f-sunsoft"/><circle cx="25" cy="30" r="3" class="f-sunsoft"/>
+    <path d="M8 34 h48 q0 20 -24 20 q-24 0 -24 -20z" class="f-seasoft"/>
+    <path d="M26 54 h12 l-2 5 h-8z" class="f-surf"/><path d="M46 6 l-6 14" class="st-sun"/></svg>`,
+  castle: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M32 4 v10"/><path d="M32 4 l10 3 l-10 3z" class="f-sun st-sun"/>
+    <path d="M24 30 v-10 q8 -8 16 0 v10z" class="f-surf"/>
+    <path d="M6 56 v-26 h6 v4 h6 v-4 h6 v4 h16 v-4 h6 v4 h6 v-4 h6 v26z" class="f-sunsoft"/>
+    <path d="M26 56 v-10 a6 6 0 0 1 12 0 v10z" class="f-surf"/><path d="M4 56 h56"/></svg>`,
+  sunset: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M14 38 a18 18 0 0 1 36 0z" class="f-sun st-sun"/>
+    <path d="M32 8 v6 M12 16 l4 4 M52 16 l-4 4" class="st-sun"/>
+    <path d="M4 38 h56"/><path d="M8 46 q6 -4 12 0 t12 0 t12 0 t12 0 M14 54 q6 -4 12 0 t12 0 t12 0"/></svg>`,
+  bridge: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M4 40 q28 -36 56 0"/><path d="M2 40 h60"/>
+    <path d="M18 27 v13 M32 22 v18 M46 27 v13" class="st-muted"/>
+    <circle cx="18" cy="24" r="3" class="f-sun st-sun"/><circle cx="32" cy="19" r="3" class="f-sun st-sun"/><circle cx="46" cy="24" r="3" class="f-sun st-sun"/>
+    <path d="M6 50 q6 -3 12 0 t12 0 t12 0 t12 0 M14 58 q6 -3 12 0 t12 0 t12 0"/></svg>`,
+  artwall: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M4 10 q28 12 56 0" class="st-muted"/>
+    <circle cx="14" cy="14" r="2.5" class="f-sun st-sun"/><circle cx="32" cy="16" r="2.5" class="f-sun st-sun"/><circle cx="50" cy="14" r="2.5" class="f-sun st-sun"/>
+    <rect x="6" y="22" width="52" height="34" rx="3" class="f-surf"/>
+    <circle cx="20" cy="38" r="7" class="f-sunsoft"/><path d="M34 46 q6 -14 16 -6 q-6 10 -16 6z" class="f-seasoft"/>
+    <path d="M30 28 l4 4 M46 28 l-3 4" class="st-sun"/></svg>`,
+  duck: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M10 40 q0 -16 22 -14 q2 -14 14 -12 q8 2 8 10 l8 2 l-8 4 q2 20 -22 22 q-22 2 -22 -12z" class="f-sunsoft"/>
+    <circle cx="46" cy="21" r="1.6" class="f-fg"/><path d="M22 40 q8 6 18 0" class="st-sun"/>
+    <ellipse cx="32" cy="56" rx="26" ry="5" class="f-surf"/></svg>`,
+  view: `<svg viewBox="0 0 64 64" class="ic" aria-hidden="true">
+    <path d="M2 50 l18 -24 l10 10 l10 -16 l22 30z" class="f-seasoft"/>
+    <path d="M40 10 c-3 -5 -10 -2 -8 4 c1 4 8 8 8 8 s7 -4 8 -8 c2 -6 -5 -9 -8 -4z" class="f-sun st-sun"/>
+    <path d="M2 56 q6 -3 12 0 t12 0 t12 0 t12 0 t12 0"/>
+    <path d="M14 50 v-6 M22 50 v-8" class="st-muted"/></svg>`
+};
+const ICO_RIDE = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17 h7 l3 -7 h-4 M16 10 l2 7 M9 17 l2 -6 h-5"/><path d="M14 6 h3"/></svg>`;
+const ICO_WALK = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13" cy="4.5" r="2"/><path d="M12 8 l-2 6 l3 3 l1 5 M10 14 l-3 7 M11.5 9 l4 3 l3 0 M11.5 9 l-4 2 l-1 3"/></svg>`;
+const ICO_PIN = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>`;
+const ICO_CHEV = `<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9 l6 6 l6 -6"/></svg>`;
+const ICO_CHECK = `<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5 l2.5 2.5 l5.5 -6"/></svg>`;
+
+/* =========================================================
+   四、把資料畫成畫面
+   ========================================================= */
+function addrHTML(q, addr){
+  return `<a class="addr" href="${navURL(q)}" target="_blank" rel="noopener" aria-label="用 Google 地圖導航到 ${addr}">
+    <span class="lbl">地址</span><span class="txt">${addr}</span><span class="nav">導航 ↗</span></a>`;
+}
+function cardHTML(c, key){
+  const q = qOf(c);
+  const must = c.must ? `<div class="must"><span class="must-label">必吃</span>${c.must.map(m =>
+      m.startsWith("?") ? `<span class="chip maybe" title="還在考慮">${m.slice(1)}</span>` : `<span class="chip">${m}</span>`).join("")}</div>` : "";
+  const hsr = c.hsr ? `<div class="hsr" aria-label="${c.hsr[1]} ${c.hsr[0]} 出發，${c.hsr[3]} ${c.hsr[2]} 抵達">
+      <div class="st"><b>${c.hsr[0]}</b><span>${c.hsr[1]}</span></div>
+      <div class="track" aria-hidden="true"><span class="dash"></span><svg viewBox="0 0 12 12"><path d="M0 1 L12 6 L0 11z"/></svg></div>
+      <div class="st"><b>${c.hsr[2]}</b><span>${c.hsr[3]}</span></div></div>` : "";
+  const tags = c.tags ? `<ul class="tags">${c.tags.map(t => `<li>${t}</li>`).join("")}</ul>` : "";
+  const note = c.note ? `<p class="note"><b>備註</b>${c.note}</p>` : "";
+  const warn = c.warn ? `<p class="note warn"><b>注意</b>${c.warn}</p>` : "";
+  const hours = c.hours ? `<p class="hours"><span class="lbl">時間</span><span>${c.hours}</span></p>` : "";
+  const badges = (c.skip ? `<span class="badge">不去</span>` : "") + (c.opt ? `<span class="badge">可選</span>` : "") + (c.add ? `<span class="badge add">網友推薦</span>` : "");
+  let rev = "";
+  if (c.reviews){
+    const r = c.reviews, pid = `rev-${key}`;
+    rev = `<div class="rev">
+      <button class="rev-btn" type="button" aria-expanded="false" aria-controls="${pid}">
+        <span>大家怎麼說</span>${r.rating ? `<span class="rating">★ ${r.rating}</span>` : ""}${ICO_CHEV}
+      </button>
+      <div class="rev-panel" id="${pid}"><div class="rev-inner">
+        <ul>${r.points.map(p => `<li>${p}</li>`).join("")}</ul>
+        <p class="rev-links"><a href="${mapURL(q)}" target="_blank" rel="noopener">看 Google 評分與全部評論 ↗</a>${r.src ? `<a href="${r.src}" target="_blank" rel="noopener">資料來源 ↗</a>` : ""}</p>
+      </div></div></div>`;
+  }
+  const illo = c.icon ? `<button class="illo" type="button" data-anim="${c.anim}" data-say="${c.say || ""}" aria-label="播放小動畫：${c.name}">${ICONS[c.icon]}<span class="play" aria-hidden="true"></span></button>` : "";
+  return `<li class="stop${c.meal ? " meal" : ""}${c.opt ? " opt" : ""}${c.skip ? " skip" : ""} reveal">
+    <article class="card${c.icon ? "" : " noillo"}">
+      ${illo}
+      <div class="card-head"><p class="time"><span>${c.time}</span>${badges}</p><h3 class="name">${c.name}</h3></div>
+      ${c.addr ? addrHTML(q, c.addr) : ""}${hours}
+      ${hsr}${tags}${must}${warn}${note}
+      ${c.nomap ? "" : `<a class="maplink" href="${mapURL(q)}" target="_blank" rel="noopener" aria-label="在 Google 地圖打開：${c.name}"><span class="pl">${ICO_PIN}<span>${c.map || c.name}</span></span><span class="go">Google 地圖 ↗</span></a>`}
+      ${rev}
+    </article></li>`;
+}
+function moveHTML(fromQ, toQ, mode, label){
+  const walk = mode === "walk";
+  return `<li class="move ${walk ? "walk" : "ride"}${label ? " home" : ""} reveal">
+    <span class="ico">${walk ? ICO_WALK : ICO_RIDE}</span>
+    <span class="mode">${label || (walk ? "走路" : "騎車")}</span>
+    <a href="${dirURL(fromQ, toQ, walk ? "walking" : "driving")}" target="_blank" rel="noopener">查路線與時間 ↗</a></li>`;
+}
+function packHTML(day){
+  if (!day.pack) return "";
+  return `<div class="pack reveal"><p class="pack-title">今天要帶（點一下打勾）</p><ul>${day.pack.map((p, i) => {
+    const k = `kt-pack-${day.id}-${i}`, on = store.get(k) === "1";
+    return `<li><button type="button" class="pack-item" data-key="${k}" aria-pressed="${on}"><span class="box">${ICO_CHECK}</span><span class="label">${p}</span></button></li>`;
+  }).join("")}</ul></div>`;
+}
+function planHTML(day){
+  if (!day.plan) return "";
+  return `<div class="plan reveal"><p class="plan-title">${day.plan.title}</p><ul>${day.plan.points.map(p => `<li>${p}</li>`).join("")}</ul></div>`;
+}
+function altsHTML(day){
+  const a = day.alts; if (!a) return "";
+  const tagSet = [...new Set(a.list.flatMap(x => x.tags))];
+  const hotTags = ["熱門", "週一休園"];
+  return `<section class="alts reveal" aria-labelledby="${day.id}-alts">
+    <h3 class="alts-title" id="${day.id}-alts">${a.title}</h3>
+    <p class="alts-sub">${a.sub}</p>
+    ${a.list.length > 4 ? `<div class="alt-filter" role="group" aria-label="篩選備選">
+      <button type="button" aria-pressed="true" data-tag="">全部</button>
+      ${tagSet.filter(t => ["熱門","冷門","雨天可去","免費","晚上也開"].includes(t)).map(t => `<button type="button" aria-pressed="false" data-tag="${t}">${t}</button>`).join("")}
+    </div>` : ""}
+    <ul class="alt-list">${a.list.map(x => `<li class="alt" data-tags="${x.tags.join(",")}">
+      <p class="alt-name">${x.name}</p>
+      <div class="alt-tags">${x.tags.map(t => `<span class="${hotTags.includes(t) ? "hot" : ""}">${t}</span>`).join("")}</div>
+      <p class="why"><b>好處</b>${x.why}</p>
+      <p class="con"><b>缺點</b>${x.con}</p>
+      <p class="hrs">${x.hours}</p>
+      ${addrHTML(clean(`${x.name} ${x.addr}`), x.addr)}
+    </li>`).join("")}</ul>
+    ${a.src ? `<p class="rev-links">${a.src.map((s, i) => `<a href="${s}" target="_blank" rel="noopener">資料來源 ${i + 1} ↗</a>`).join("")}</p>` : ""}
+  </section>`;
+}
+function dayItemsHTML(d){
+  const out = [];
+  let prevQ = d.start ? d.start : null;
+  d.items.forEach((it, i) => {
+    const q = qOf(it);
+    if (it.skip){ out.push(cardHTML(it, `${d.id}-${i}`)); return; }
+    if (it.go !== null && prevQ){
+      out.push(moveHTML(prevQ, q, it.go || "ride", (i === 0 && d.start) ? "從大社出發" : ""));
+    }
+    out.push(cardHTML(it, `${d.id}-${i}`));
+    prevQ = q;
+  });
+  if (d.end) out.push(moveHTML(prevQ, d.end, "ride", "騎車回大社"));
+  return out.join("");
+}
+function render(){
+  document.getElementById("daynav").innerHTML = TRIP.map(d =>
+    `<button type="button" class="daybtn" data-target="${d.id}" aria-current="false"><b>${d.date}</b><span>${d.dow}</span></button>`).join("");
+  document.getElementById("days").innerHTML = TRIP.map(d => `
+    <section class="day" id="${d.id}" aria-labelledby="${d.id}-t">
+      <div class="day-head reveal"><span class="day-date">${d.date}</span><h2 class="day-title" id="${d.id}-t">${d.title}</h2><span class="day-dow">${d.dow}</span></div>
+      ${planHTML(d)}${packHTML(d)}
+      <ol class="tl">${dayItemsHTML(d)}</ol>
+      ${altsHTML(d)}
+    </section>`).join("");
+}
+
+/* 倒數 */
+function countdown(){
+  const el = document.getElementById("countdown"), now = new Date();
+  if (now >= TRIP_END){ el.textContent = "旅程結束"; return; }
+  if (now >= DEPART){ el.textContent = "旅程進行中"; return; }
+  const tw = new Date(now.getTime() + 8 * 3600e3);
+  const today = Date.UTC(tw.getUTCFullYear(), tw.getUTCMonth(), tw.getUTCDate());
+  const days = Math.round((Date.UTC(2026, 10, 27) - today) / 864e5);
+  el.textContent = days <= 0 ? "今天出發" : `${days} 天`;
+}
+
+/* =========================================================
+   五、互動：日期列、清單、下拉、篩選、捲動動畫
+   ========================================================= */
+function setupNav(){
+  const nav = document.getElementById("daynav");
+  const btns = [...nav.querySelectorAll(".daybtn")];
+  nav.addEventListener("click", e => {
+    const b = e.target.closest(".daybtn"); if (!b) return;
+    document.getElementById(b.dataset.target).scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+  });
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const line = document.querySelector(".daynav").offsetHeight + 80;
+    let cur = null;
+    TRIP.forEach(d => { if (document.getElementById(d.id).getBoundingClientRect().top <= line) cur = d.id; });
+    btns.forEach(b => b.setAttribute("aria-current", String(b.dataset.target === cur)));
+  };
+  window.addEventListener("scroll", () => { if (!ticking){ ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
+}
+function setupClicks(){
+  document.getElementById("days").addEventListener("click", e => {
+    const p = e.target.closest(".pack-item");
+    if (p){ const on = p.getAttribute("aria-pressed") !== "true"; p.setAttribute("aria-pressed", String(on)); store.set(p.dataset.key, on ? "1" : "0"); return; }
+    const r = e.target.closest(".rev-btn");
+    if (r){ const open = r.getAttribute("aria-expanded") !== "true"; r.setAttribute("aria-expanded", String(open)); document.getElementById(r.getAttribute("aria-controls")).classList.toggle("open", open); return; }
+    const f = e.target.closest(".alt-filter button");
+    if (f){
+      const box = f.closest(".alts"), tag = f.dataset.tag;
+      box.querySelectorAll(".alt-filter button").forEach(b => b.setAttribute("aria-pressed", String(b === f)));
+      box.querySelectorAll(".alt").forEach(li => { li.hidden = !!tag && !li.dataset.tags.split(",").includes(tag); });
+      return;
+    }
+    const il = e.target.closest(".illo");
+    if (il) openAnim(il);
+  });
+}
+function setupReveal(){
+  if (reduceMotion.matches || !("IntersectionObserver" in window)) return;
+  const els = [...document.querySelectorAll(".reveal")];
+  const vh = window.innerHeight;
+  const later = els.filter(el => el.getBoundingClientRect().top > vh - 10);
+  later.forEach(el => el.classList.add("pre"));
+  requestAnimationFrame(() => later.forEach(el => el.classList.add("reveal-on")));
+  const io = new IntersectionObserver(entries => {
+    let n = 0;
+    entries.filter(en => en.isIntersecting).forEach(en => {
+      en.target.style.transitionDelay = `${n++ * 70}ms`;
+      en.target.classList.remove("pre");
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  later.forEach(el => io.observe(el));
+}
+
+/* =========================================================
+   六、全螢幕小動畫
+   ========================================================= */
+// 小人：腳底在 (x,y)。媽媽橘色洋裝，我藍色
+function person(who, x, y, s = 1, walking = false){
+  const body = who === "mom" ? "f-sun" : "f-sea";
+  const bun = who === "mom" ? `<circle cx="-6" cy="-36" r="3.2" class="f-fg"/>`
+    : `<path d="M-7.6 -32 q-2 9 -1 15 q3 1 5 -2 M7.6 -32 q2 9 1 15 q-3 1 -5 -2" class="f-fg"/><circle cx="5.5" cy="-35.5" r="1.6" class="f-sun no-st"/>`;
+  return `<g transform="translate(${x} ${y}) scale(${s})"><g class="${walking ? "walk" : ""}">
+    <path d="M-10 0 L10 0 L0 -25 Z" class="${body} ic" style="stroke-width:1.6"/>
+    ${bun}
+    <circle cx="0" cy="-30.5" r="7" class="f-surf ic" style="stroke-width:1.6"/>
+    <path d="M-7.2 -31 a7.2 7.2 0 0 1 14.4 0 q-7.2 -4 -14.4 0z" class="f-fg"/>
+    <circle cx="-2.4" cy="-29.5" r=".9" class="f-fg"/><circle cx="2.4" cy="-29.5" r=".9" class="f-fg"/>
+  </g></g>`;
+}
+function bubble(cx, cy, text, d, dashed = false){
+  const w = [...text].reduce((a, ch) => a + (/[\x20-\x7e]/.test(ch) ? 7.5 : 14), 0) + 22;
+  cx = Math.max(w / 2 + 4, Math.min(316 - w / 2, cx));
+  return `<g class="pop" style="--d:${d}s"><rect x="${cx - w / 2}" y="${cy - 14}" width="${w}" height="28" rx="14" class="f-surf ic" style="${dashed ? "stroke-dasharray:4 3;stroke:var(--sun)" : "stroke:var(--sun)"}"/>
+    <text x="${cx}" y="${cy + 5}" text-anchor="middle" class="t" font-size="14">${text}</text></g>`;
+}
+const steam = (x, y, d = 0) => `<path d="M${x} ${y} q-5 -6 0 -12 t0 -12" class="ic st-sun steam" style="--d:${d}s"/>`;
+const duo = (x, y, s = 1, d = 0, walking = false) => `<g class="pop" style="--d:${d}s">${person("mom", x, y, s, walking)}${person("me", x + 24 * s, y, s, walking)}</g>`;
+const svgWrap = (vb, inner) => `<svg viewBox="${vb}" class="ic" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${inner}</svg>`;
+const waves = (y, d = 0, op = .8) => `<g class="ap" style="--d:${d}s"><g class="flow" style="--t:2.6s"><path d="M-40 ${y} q10 -5 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" class="ic" style="stroke-width:1.6;opacity:${op}"/></g></g>`;
+
+/* --- 台灣地圖：經緯度 → 座標，再用平滑曲線連起來 --- */
+const TW = [[121.54,25.30],[121.75,25.15],[121.99,25.01],[121.85,24.85],[121.83,24.60],[121.75,24.30],[121.62,23.98],[121.50,23.50],[121.38,23.10],[121.15,22.75],[120.90,22.35],[120.85,21.90],[120.73,21.93],[120.69,22.20],[120.59,22.37],[120.45,22.46],[120.26,22.62],[120.15,23.00],[120.08,23.10],[120.13,23.45],[120.15,23.70],[120.38,24.10],[120.50,24.28],[120.70,24.55],[120.92,24.82],[121.10,25.05],[121.40,25.18]];
+const HSR = [[121.464,25.014],[121.215,25.013],[121.040,24.808],[120.826,24.605],[120.616,24.112],[120.574,23.874],[120.416,23.736],[120.323,23.459],[120.286,22.925],[120.307,22.687]];
+const proj = ([lon, lat]) => [100 + (lon - 120.0) * 0.917 * 76, 14 + (25.35 - lat) * 76];
+function smooth(pts, closed){
+  const P = pts.map(proj), n = P.length, f = v => v.toFixed(1);
+  const at = i => closed ? P[(i + n) % n] : P[Math.max(0, Math.min(n - 1, i))];
+  let d = `M${f(P[0][0])} ${f(P[0][1])}`;
+  const segs = closed ? n : n - 1;
+  for (let i = 0; i < segs; i++){
+    const p0 = at(i - 1), p1 = at(i), p2 = at(i + 1), p3 = at(i + 2);
+    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+    const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+    d += ` C${f(c1[0])} ${f(c1[1])} ${f(c2[0])} ${f(c2[1])} ${f(p2[0])} ${f(p2[1])}`;
+  }
+  return d + (closed ? "Z" : "");
+}
+function hsrMap(back){
+  const route = smooth(back ? [...HSR].reverse() : HSR, false);
+  const BQ = proj(HSR[0]), ZY = proj(HSR[HSR.length - 1]);
+  const tBQ = back ? "19:20" : "19:29", tZY = back ? "17:55" : "21:20";
+  const dur = back ? "1 小時 25 分" : "1 小時 51 分";
+  const endBubble = back ? bubble(222, 76, "回到板橋，到家說一聲", 5.2) : bubble(70, 172, "到左營囉！", 5.2);
+  const momAt = p => p === BQ ? BQ[0] - 14 : ZY[0] + 14;
+  const wave = (x, y, d) => `<g class="ap" style="--d:${d}s"><g class="flow" style="--t:3s"><path d="M${x} ${y} q5 -4 10 0 t10 0 t10 0 t10 0 t10 0 t10 0" class="ic" style="stroke-width:1.6;opacity:.7"/></g></g>`;
+  return svgWrap("0 0 320 300", `
+    <defs><clipPath id="seaL"><rect x="0" y="0" width="100" height="300"/></clipPath></defs>
+    <path d="${smooth(TW, true)}" pathLength="1" class="f-seasoft ic draw" style="--t:1.4s;fill-opacity:0;animation:draw 1.4s ease-in-out both, fillIn .6s ease 1.2s both"/>
+    <g clip-path="url(#seaL)">${wave(16, 110, 1.3)}${wave(30, 190, 1.4)}</g>
+    ${wave(250, 170, 1.5)}
+    <path d="M160 128 l9 -16 l9 16z M171 150 l11 -20 l11 20z M180 112 l8 -14 l8 14z" class="f-surf ic pop" style="--d:1.3s;stroke-width:1.6"/>
+    <path d="${route}" pathLength="1" class="ic st-sun draw" style="stroke-width:3.5;--t:2.2s;--d:2.8s;animation-timing-function:linear"/>
+    <g class="pop" style="--d:1.8s"><circle cx="${BQ[0]}" cy="${BQ[1]}" r="5" class="f-sea ic" style="stroke:var(--surface)"/></g>
+    <g class="pop" style="--d:1.9s"><circle cx="${ZY[0]}" cy="${ZY[1]}" r="5" class="f-sea ic" style="stroke:var(--surface)"/></g>
+    <g class="ap" style="--d:1.9s"><text x="${BQ[0] + 10}" y="${BQ[1] - 6}" class="t" font-size="14">板橋</text><text x="${BQ[0] + 10}" y="${BQ[1] + 10}" class="tm" font-size="12">${tBQ}</text></g>
+    <g class="ap" style="--d:2s"><text x="${ZY[0] - 10}" y="${ZY[1] + 4}" text-anchor="end" class="t" font-size="14">左營</text><text x="${ZY[0] - 10}" y="${ZY[1] + 19}" text-anchor="end" class="tm" font-size="12">${tZY}</text></g>
+    <g style="animation-name:fadeIn,fadeOut;animation-duration:.35s,.3s;animation-delay:2.1s,2.75s;animation-fill-mode:both,forwards;animation-timing-function:ease">${person("mom", momAt(back ? ZY : BQ), (back ? ZY : BQ)[1] - 4, .62)}</g>
+    <g class="ap" style="--d:2.8s"><g>
+      <path d="M-12 -4.5 h14 q8 0 11 4.5 q-3 4.5 -11 4.5 h-14 z" class="f-surf ic" style="stroke-width:1.8"/>
+      <path d="M4 -2.5 q4 0 6 2.5 h-6z" class="f-sea no-st"/>
+      <animateMotion dur="2.2s" begin="2.8s" fill="freeze" rotate="auto" path="${route}"/></g></g>
+    <g class="pop" style="--d:3.4s"><rect x="10" y="252" width="128" height="28" rx="14" class="f-sunsoft no-st"/><text x="74" y="271" text-anchor="middle" class="t" font-size="13">高鐵約 ${dur}</text></g>
+    <g class="ap" style="--d:5.0s">${person("mom", momAt(back ? BQ : ZY), (back ? BQ : ZY)[1] - 4, .62)}</g>
+    <g class="ap" style="--d:${back ? 2.1 : 4.6}s">${person("me", ZY[0] + 30, ZY[1] - 4, .62)}</g>
+    ${endBubble}
+  `);
+}
+
+/* --- 夜市／老街／市場共用：燈籠一盞盞亮，兩個人逛過去 --- */
+const STALLS = {
+  rf: ["馬鈴薯", "蔥油餅", "鳳爪", "?月亮蝦餅？"],
+  gh: ["春捲", "碗粿", "割包", "?鱔魚意麵"],
+  ap: ["蝦餅", "劍獅", "豆花", "蜜餞"],
+  yc: ["肉粽", "麻糬", "旗魚", "餐包"]
+};
+function marketScene(key){
+  const foods = STALLS[key] || STALLS.rf;
+  const xs = [18, 92, 166, 240], when = [2.3, 3.3, 4.25, 5.2];
+  const stalls = xs.map((x, i) => {
+    const f = foods[i], maybe = f.startsWith("?");
+    return `
+      <path d="M${x + 31} 76 v12" class="ic st-muted" style="stroke-width:1.4"/>
+      <circle cx="${x + 31}" cy="98" r="10" class="lantern ic" style="--d:${0.3 + i * 0.35}s"/>
+      <path d="M${x + 27} 108 h8" class="ic"/>
+      <path d="M${x} 130 h62 l-6 18 h-50z" class="f-sunsoft ic"/>
+      <path d="M${x + 15} 130 l-3 18 M${x + 31} 130 v18 M${x + 47} 130 l3 18" class="ic st-sun" style="stroke-width:1.4"/>
+      <path d="M${x + 6} 148 v20 M${x + 56} 148 v20" class="ic"/>
+      <rect x="${x + 2}" y="168" width="58" height="34" rx="4" class="f-surf ic"/>
+      ${bubble(x + 31, 48, maybe ? f.slice(1) : f, when[i], maybe)}`;
+  }).join("");
+  return [6, svgWrap("0 0 320 240", `
+    <path d="M8 76 q152 14 304 0" class="ic st-muted" style="stroke-width:1.4"/>
+    ${stalls}
+    <path d="M0 226 h320" class="ic st-line" style="stroke-dasharray:6 6"/>
+    <g class="mvx" style="--x0:6px;--x1:296px;--t:4s;--d:1.5s">${person("mom", 0, 226, 1, true)}${person("me", -26, 226, 1, true)}</g>`)];
+}
+
+/* --- 每個地點的動畫：回傳 [長度(秒), SVG]；say＝最後一句話 --- */
+const ANIMS = {
+  hsrGo:  () => [6, hsrMap(false)],
+  hsrBack:() => [6, hsrMap(true)],
+  market: say => marketScene(say),
+
+  sugar: () => [5, svgWrap("0 0 320 240", `
+    <g class="ap" style="--d:.1s">
+      <path d="M30 196 v-66 l34 -22 v22 l34 -22 v22 l34 -22 v88z" class="f-surf ic"/>
+      <path d="M44 156 h20 v18 h-20z M84 156 h20 v18 h-20z" class="f-seasoft ic" style="stroke-width:1.6"/>
+      <rect x="146" y="58" width="22" height="138" class="f-sunsoft ic"/>
+      <path d="M146 80 h22 M146 100 h22" class="ic" style="stroke-width:1.4"/>
+      <path d="M210 196 v-40 q20 -26 50 -26 q30 0 50 26 v40" class="ic st-muted" style="stroke-width:1.4"/>
+      <path d="M232 196 v-30 M260 196 v-38 M288 196 v-30" class="ic st-muted" style="stroke-width:5;opacity:.5"/>
+    </g>
+    <circle cx="157" cy="44" r="8" class="f-surf ic st-muted steam" style="--d:.4s"/>
+    <circle cx="166" cy="30" r="10" class="f-surf ic st-muted steam" style="--d:1s"/>
+    <circle cx="152" cy="22" r="7" class="f-surf ic st-muted steam" style="--d:1.5s"/>
+    <path d="M0 210 h320" class="ic st-muted" style="stroke-dasharray:3 6"/><path d="M0 204 h320" class="ic st-line"/>
+    <g class="mvx" style="--x0:-140px;--x1:360px;--t:3.4s;--d:.6s">
+      <rect x="0" y="178" width="34" height="22" rx="4" class="f-sun ic st-sun"/><rect x="6" y="166" width="14" height="12" class="f-sunsoft ic"/>
+      <path d="M24 166 h6 v12" class="ic"/><circle cx="9" cy="203" r="4" class="f-fg"/><circle cx="26" cy="203" r="4" class="f-fg"/>
+      <rect x="-50" y="182" width="44" height="18" rx="3" class="f-seasoft ic"/><circle cx="-40" cy="203" r="4" class="f-fg"/><circle cx="-16" cy="203" r="4" class="f-fg"/>
+      <path d="M-6 192 h6" class="ic"/>
+    </g>
+    ${duo(206, 226, .9, 3.4)}
+    <g class="pop" style="--d:3.8s"><rect x="268" y="150" width="20" height="34" rx="10" class="f-sun ic st-sun"/><path d="M278 184 v14" class="ic st-sun" style="stroke-width:3"/></g>
+    ${bubble(160, 30, "台糖冰棒＋五分車！", 3.9)}`)],
+
+  bun: say => {
+    const bunAt = (x, d) => `<g class="pop" style="--d:${d}s"><path d="M${x - 20} 152 q0 -26 20 -26 q20 0 20 26z" class="f-surf ic"/><path d="M${x - 6} 132 q6 6 12 0 M${x} 126 v6" class="ic" style="stroke-width:1.6"/></g>`;
+    return [3.5, svgWrap("0 0 320 240", `
+      ${bunAt(124, 1.1)}${bunAt(160, 1.3)}${bunAt(196, 1.5)}
+      <rect x="96" y="150" width="128" height="52" rx="10" class="f-sunsoft ic"/>
+      <path d="M96 166 h128 M126 166 v36 M160 166 v36 M194 166 v36" class="ic"/>
+      <g class="ap" style="--d:1.6s">${steam(124, 116, 0)}${steam(160, 110, .5)}${steam(196, 116, 1)}</g>
+      <g class="lidfly" style="--d:.4s"><path d="M92 150 q68 -50 136 0z" class="f-sunsoft ic"/><circle cx="160" cy="122" r="5" class="f-surf ic"/></g>
+      ${duo(34, 214, .9, .1)}
+      ${bubble(160, 30, say || "早餐吃飽飽，出發！", 2.2)}`)];
+  },
+
+  rice: () => [4, svgWrap("0 0 320 240", `
+    <path d="M262 70 l-26 96 M278 74 l-34 94" class="ic st-muted"/>
+    <g class="drop" style="--d:.2s"><path d="M104 150 q56 -46 112 0z" class="f-surf ic"/></g>
+    <g class="drop" style="--d:.8s"><path d="M122 138 q10 -10 20 -4 q8 -8 18 -2 q10 -6 20 2 q10 -2 16 6 q-36 -6 -74 -2z" class="f-sunsoft ic" style="stroke-width:1.6"/></g>
+    <g class="drop" style="--d:1.4s"><path d="M132 128 q8 -6 14 0 M150 122 q8 -5 14 0 M168 125 q6 -5 12 1" class="ic st-sun" style="stroke-width:4"/></g>
+    <g class="drop" style="--d:2s"><ellipse cx="178" cy="122" rx="17" ry="11" class="f-surf ic"/><circle cx="178" cy="122" r="6" class="f-sun no-st"/></g>
+    <path d="M98 150 h124 q0 58 -62 58 q-62 0 -62 -58z" class="f-seasoft ic"/>
+    <path d="M138 208 h44 l-4 9 h-36z" class="f-surf ic"/>
+    <g class="ap" style="--d:2.5s">${steam(140, 96, 0)}${steam(160, 90, .5)}${steam(180, 96, 1)}</g>
+    ${duo(30, 214, .9, .1)}
+    ${bubble(160, 32, "魚鬆肉燥飯＋半熟鴨蛋", 2.8)}`)],
+
+  tea: () => [4, svgWrap("0 0 320 240", `
+    <g class="pour" style="--d:.5s"><g class="ap" style="--d:.1s">
+      <rect x="222" y="40" width="36" height="66" rx="8" class="f-surf ic"/><rect x="230" y="28" width="20" height="14" rx="3" class="f-surf ic"/>
+      <rect x="226" y="60" width="28" height="30" rx="3" class="f-sunsoft ic" style="stroke-width:1.4"/>
+      <text x="240" y="80" text-anchor="middle" class="tm" font-size="9">紅茶</text></g></g>
+    <path d="M220 58 q-36 10 -52 58" pathLength="1" class="ic st-sun draw" style="stroke-width:5;--t:.5s;--d:1s;opacity:.75"/>
+    <path d="M120 96 h80 l-8 110 h-64z" class="f-surf ic"/>
+    <g class="pop" style="--d:1.5s"><path d="M124 130 h72 l-5 74 h-62z" class="f-sunsoft no-st"/></g>
+    <g class="drop" style="--d:2s"><rect x="134" y="140" width="16" height="16" rx="3" class="f-surf ic" style="stroke-width:1.6"/><rect x="160" y="150" width="16" height="16" rx="3" class="f-surf ic" style="stroke-width:1.6"/></g>
+    <path d="M120 96 h80 l-8 110 h-64z" class="ic"/>
+    <g class="slide" style="--x0:80px;--x1:0px;--d:2.4s;--t:.5s"><path d="M176 50 l-8 120" class="ic st-sun" style="stroke-width:5"/></g>
+    ${duo(28, 214, .9, .1)}
+    ${bubble(160, 30, "紅茶牛奶，不苦不澀", 2.8)}`)],
+
+  pier2: () => {
+    const wh = [14, 76, 138].map(x => `<path d="M${x} 168 v-62 l29 -22 l29 22 v62z" class="f-surf ic"/>
+      <path d="M${x + 19} 168 v-22 a10 10 0 0 1 20 0 v22z" class="f-seasoft ic"/><circle cx="${x + 29}" cy="112" r="5" class="f-sunsoft ic" style="stroke-width:1.6"/>`).join("");
+    const horse = (x, cls) => `<g class="${cls}"><path d="M${x} 102 v20" class="ic st-muted" style="stroke-width:1.4"/>
+      <ellipse cx="${x}" cy="128" rx="11" ry="6" class="f-surf ic" style="stroke-width:1.6"/><path d="M${x + 8} 125 l5 -9 l4 2 l-3 8" class="f-surf ic" style="stroke-width:1.6"/>
+      <path d="M${x - 6} 133 v7 M${x + 6} 133 v7" class="ic" style="stroke-width:1.6"/></g>`;
+    return [5, svgWrap("0 0 320 240", `
+      ${wh}
+      <path d="M262 84 v-30" class="ic"/><path d="M262 54 l16 5 l-16 5z" class="f-sun no-st flag"/>
+      <path d="M222 100 L262 76 L302 100 Z" class="f-sunsoft ic"/>
+      <path d="M222 100 q10 7 20 0 q10 7 20 0 q10 7 20 0 q10 7 20 0" class="ic st-sun" style="stroke-width:1.6"/>
+      ${horse(244, "horse1")}${horse(280, "horse2")}
+      <path d="M262 100 v62 M226 100 v62 M298 100 v62" class="ic st-muted" style="stroke-width:1.2"/>
+      <ellipse cx="262" cy="164" rx="42" ry="7" class="f-seasoft ic"/>
+      <path d="M0 214 h320" class="ic st-line"/>
+      <g class="mvx" style="--x0:-50px;--x1:140px;--t:3.8s;--d:.2s">${person("me", 20, 214, 1, true)}${person("mom", 46, 214, 1, true)}</g>
+      ${bubble(120, 30, "慢慢逛～", 3)}`)];
+  },
+
+  sup: () => [5.5, svgWrap("0 0 320 240", `
+    <g class="ap" style="--d:.1s">
+      <path d="M0 150 v-20 h20 v-18 h18 v18 h14 v-40 h20 v40 h16 v-24 h18 v24 h22 l10 -90 l10 90 h18 v-30 h20 v30 h20 v-16 h22 v16 h20 v-22 h22 v22 h30 v20z" class="f-surf ic st-muted" style="stroke-width:1.4"/>
+    </g>
+    <rect x="0" y="150" width="320" height="90" class="f-seasoft no-st"/>
+    <path d="M0 150 h320" class="ic"/>
+    ${waves(170, .2)}${waves(204, .3, .6)}${waves(230, .4, .4)}
+    <g class="mvx" style="--x0:-80px;--x1:150px;--t:4.2s;--d:.4s"><g class="float">
+      <path d="M40 178 q50 -10 100 0 q-50 9 -100 0z" class="f-sunsoft ic"/>
+      ${person("me", 90, 176, 1.05)}
+      <g transform="translate(100 140)"><g class="paddle"><path d="M0 0 l8 44" class="ic" style="stroke-width:2.4"/><path d="M5 40 l8 -2 l3 14 l-8 2z" class="f-sun ic st-sun"/></g></g>
+    </g></g>
+    ${bubble(160, 34, "落水也不怕，有帶換洗衣服", 4.4)}`)],
+
+  sauna: () => [4.5, svgWrap("0 0 320 240", `
+    <path d="M30 150 h170 v50 q0 12 -12 12 h-146 q-12 0 -12 -12z" class="f-surf ic"/>
+    <g class="mvx" style="--x0:-120px;--x1:0px;--t:1.1s;--d:.1s"><g class="sink" style="--d:1.25s">${person("mom", 96, 170, 1, false)}${person("me", 124, 170, 1, false)}</g></g>
+    <path d="M32 166 q14 -6 28 0 t28 0 t28 0 t28 0 t28 0 t26 0 v34 q0 10 -10 10 h-148 q-10 0 -10 -10z" class="f-seasoft ic"/>
+    <g class="ap" style="--d:1.8s">${steam(70, 150, 0)}${steam(150, 148, .6)}${steam(180, 150, 1.1)}</g>
+    <g class="slide" style="--x0:140px;--x1:0px;--d:2.2s;--t:.7s">
+      <path d="M226 176 h64 v20 q0 14 -14 14 h-36 q-14 0 -14 -14z" class="f-sunsoft ic"/>
+      <path d="M220 182 h6 M290 182 h6" class="ic"/><path d="M228 176 q30 -12 60 0" class="f-surf ic"/>
+      ${steam(246, 156, .2)}${steam(268, 156, .8)}
+      <text x="258" y="230" text-anchor="middle" class="tm" font-size="11">麻油雞</text></g>
+    ${bubble(160, 34, "好放鬆～", 3.2)}`)],
+
+  sashimi: say => {
+    const slice = (x, y, r, d) => `<g class="pop" style="--d:${d}s"><g transform="translate(${x} ${y}) rotate(${r})"><path d="M-16 6 q4 -20 28 -10 q-10 14 -28 10z" class="f-sunsoft ic" style="stroke-width:1.6"/><path d="M-8 2 l10 -8 M-2 4 l10 -7" class="ic st-sun" style="stroke-width:1.4"/></g></g>`;
+    return [4, svgWrap("0 0 320 240", `
+      <g class="ap" style="--d:.1s"><path d="M286 30 a16 16 0 1 0 12 24 a12 12 0 1 1 -12 -24z" class="f-sunsoft ic"/>
+        <path d="M240 40 l2 4 l4 1 l-4 1 l-2 4 l-2 -4 l-4 -1 l4 -1z M268 82 l1.5 3 l3 1 l-3 1 l-1.5 3 l-1.5 -3 l-3 -1 l3 -1z" class="f-sun no-st"/></g>
+      <ellipse cx="176" cy="178" rx="96" ry="30" class="f-surf ic"/><ellipse cx="176" cy="174" rx="78" ry="20" class="ic st-line"/>
+      ${slice(122, 170, -20, .5)}${slice(148, 162, -8, .8)}${slice(176, 160, 4, 1.1)}${slice(204, 164, 14, 1.4)}${slice(228, 172, 24, 1.7)}
+      <g class="pop" style="--d:2s"><path d="M150 188 q6 -10 12 0z" class="f-seasoft ic" style="stroke-width:1.6"/></g>
+      <path d="M262 120 l-40 54 M272 124 l-44 52" class="ic st-muted" style="stroke-width:2.4"/>
+      ${duo(30, 220, .9, .1)}
+      ${bubble(150, 32, say || "宵夜生魚片！", 2.4)}`)];
+  },
+
+  beef: () => {
+    const meat = (x, y, d) => `<g class="drop" style="--d:${d}s"><path d="M${x - 14} ${y} q6 -10 16 -6 q10 -4 12 6 q-14 6 -28 0z" class="f-sunsoft ic st-sun" style="stroke-width:1.6"/></g>`;
+    return [4.5, svgWrap("0 0 320 240", `
+      <g class="pour" style="--d:1.5s"><g class="ap" style="--d:1.1s">
+        <path d="M228 66 h52 v38 q0 10 -10 10 h-32 q-10 0 -10 -10z" class="f-surf ic"/><path d="M228 74 l-14 -8" class="ic" style="stroke-width:3"/>
+        <path d="M280 76 q14 2 12 16" class="ic"/></g></g>
+      <path d="M214 76 q-30 20 -50 58" pathLength="1" class="ic st-sun draw" style="stroke-width:4;--t:.6s;--d:2s;opacity:.7"/>
+      <path d="M98 140 h124 q0 62 -62 62 q-62 0 -62 -62z" class="f-seasoft ic"/>
+      <path d="M100 140 q60 -14 120 0" class="f-surf ic"/>
+      ${meat(136, 138, .2)}${meat(162, 134, .5)}${meat(188, 138, .8)}
+      <g class="ap" style="--d:2.6s">${steam(136, 118, 0)}${steam(160, 112, .5)}${steam(184, 118, 1)}</g>
+      <g class="slide" style="--x0:-140px;--x1:0px;--d:2.8s;--t:.7s">
+        <path d="M30 182 h56 q0 26 -28 26 q-28 0 -28 -26z" class="f-surf ic"/><path d="M34 182 q24 -12 48 0" class="f-sunsoft ic"/>
+        <text x="58" y="226" text-anchor="middle" class="tm" font-size="11">肉燥飯</text></g>
+      ${bubble(160, 30, "現沖牛肉湯＋肉燥飯", 3.3)}`)];
+  },
+
+  camera: () => [4.5, svgWrap("0 0 320 240", `
+    <g class="ap" style="--d:.1s">
+      <path d="M150 70 l8 -14 h28 l8 14z" class="f-surf ic"/>
+      <rect x="126" y="70" width="140" height="84" rx="12" class="f-seasoft ic"/>
+      <circle cx="196" cy="112" r="28" class="f-surf ic"/><circle cx="196" cy="112" r="14" class="f-sunsoft ic"/>
+      <circle cx="244" cy="86" r="5" class="f-sun no-st"/><path d="M136 84 h22" class="ic"/>
+    </g>
+    ${duo(40, 200, 1.05, .3)}
+    <g class="ap" style="--d:.8s"><path d="M30 176 l-10 6 M34 160 l-12 -2" class="ic st-sun"/></g>
+    <rect x="0" y="0" width="320" height="240" class="f-surf no-st flash" style="--d:1.6s"/>
+    <g class="print" style="--d:2.1s">
+      <rect x="164" y="150" width="64" height="76" rx="3" class="f-surf ic"/><rect x="170" y="156" width="52" height="50" class="f-sunsoft no-st"/>
+      <g transform="translate(184 204) scale(.5)">${person("mom", 0, 0)}${person("me", 24, 0)}</g>
+    </g>
+    ${bubble(160, 30, "喀嚓！用底片拍一張", 2.9)}`)],
+
+  ice: say => [4, svgWrap("0 0 320 240", `
+    <path d="M100 150 h120 q0 56 -60 56 q-60 0 -60 -56z" class="f-seasoft ic"/>
+    <path d="M136 206 h48 l-4 9 h-40z" class="f-surf ic"/>
+    <g class="drop" style="--d:.2s"><path d="M108 150 q10 -78 52 -78 q42 0 52 78z" class="f-surf ic"/></g>
+    <g class="drop" style="--d:.8s"><path d="M126 122 q14 -12 30 -4 q12 -6 26 2 q-6 12 -28 12 q-22 0 -28 -10z" class="f-sunsoft ic st-sun" style="stroke-width:1.6"/></g>
+    <g class="drop" style="--d:1.3s"><circle cx="138" cy="100" r="7" class="f-sun ic st-sun"/><circle cx="160" cy="90" r="7" class="f-sun ic st-sun"/><circle cx="182" cy="100" r="7" class="f-sun ic st-sun"/></g>
+    <g class="drop" style="--d:1.8s"><circle cx="148" cy="134" r="6" class="f-surf ic"/><circle cx="170" cy="136" r="6" class="f-seasoft ic"/><circle cx="190" cy="130" r="6" class="f-surf ic"/></g>
+    <path d="M112 112 q48 -30 96 0" pathLength="1" class="ic draw" style="stroke:var(--sun-soft);stroke-width:5;--t:.8s;--d:2.2s"/>
+    <g class="slide" style="--x0:120px;--x1:0px;--d:2.6s;--t:.6s"><path d="M240 120 l-24 56" class="ic" style="stroke-width:3"/><ellipse cx="244" cy="112" rx="9" ry="12" class="f-surf ic"/></g>
+    ${duo(28, 214, .9, .1)}
+    ${bubble(160, 34, say || "剉冰來了！", 2.9)}`)],
+
+  castle: () => [5, svgWrap("0 0 320 240", `
+    <g class="ap" style="--d:.1s">
+      <path d="M40 196 v-50 h14 v10 h14 v-10 h14 v10 h56 v-10 h14 v10 h14 v-10 h14 v10 h14 v-10 h14 v50z" class="f-sunsoft ic"/>
+      <path d="M40 170 h184 M40 182 h184" class="ic st-sun" style="stroke-width:1;opacity:.6"/>
+      <path d="M140 146 v-58 q20 -22 40 0 v58z" class="f-surf ic"/>
+      <path d="M150 112 h20 v16 h-20z" class="f-seasoft ic" style="stroke-width:1.6"/>
+      <path d="M146 196 v-24 a14 14 0 0 1 28 0 v24z" class="f-surf ic"/>
+      <path d="M160 70 v-48" class="ic"/>
+    </g>
+    <g class="lift" style="--d:.9s"><path d="M160 70 l22 6 l-22 6z" class="f-sun no-st flag"/></g>
+    <path d="M0 196 h320" class="ic st-line"/>
+    <g class="mvx" style="--x0:330px;--x1:0px;--t:2.2s;--d:.6s">${person("mom", 240, 204, 1, true)}${person("me", 266, 204, 1, true)}</g>
+    ${bubble(160, 18, "爬上瞭望台看安平", 3.2)}`)],
+
+  sunset: () => [5, svgWrap("0 0 320 240", `
+    <g class="sunset" style="--d:.3s"><circle cx="150" cy="92" r="30" class="f-sun no-st"/><circle cx="150" cy="92" r="42" class="f-sun no-st" style="opacity:.18"/></g>
+    <rect x="-10" y="150" width="340" height="100" class="f-seasoft no-st"/>
+    <path d="M0 150 h320" class="ic"/>
+    ${waves(166, .2)}${waves(186, .3, .6)}
+    <path d="M-10 200 q120 -14 230 4 q60 10 110 2 v40 h-340z" class="f-sunsoft ic"/>
+    <g class="ap" style="--d:.1s"><path d="M262 202 l12 -80 l12 80 M266 172 h16 M268 150 h12 M262 202 h24" class="ic st-muted" style="stroke-width:2.4"/></g>
+    ${duo(90, 214, 1, .4)}
+    <g class="ap" style="--d:3s"><path d="M40 60 q6 -6 12 0 q6 -6 12 0 M210 44 q5 -5 10 0 q5 -5 10 0" class="ic st-muted" style="stroke-width:1.6"/></g>
+    ${bubble(160, 30, "漁光島看夕陽", 3.6)}`)],
+
+  bridge: () => {
+    const lamps = [56, 98, 140, 180, 222, 264].map((x, i) => {
+      const y = 150 - Math.round(60 * Math.sin(Math.PI * (x - 20) / 280));
+      return `<path d="M${x} ${y} v${150 - y}" class="ic st-muted" style="stroke-width:1.2"/><circle cx="${x}" cy="${y}" r="6" class="lantern ic st-sun" style="--d:${1 + i * .3}s"/>
+        <path d="M${x} 168 v18" class="ic st-sun flash" style="--d:${1.2 + i * .3}s;stroke-width:3;animation-iteration-count:1;animation-fill-mode:forwards"/>`;
+    }).join("");
+    return [4.5, svgWrap("0 0 320 240", `
+      <g class="pop" style="--d:2.8s"><path d="M40 40 l2 4 l4 1 l-4 1 l-2 4 l-2 -4 l-4 -1 l4 -1z M280 30 l2 4 l4 1 l-4 1 l-2 4 l-2 -4 l-4 -1 l4 -1z M200 56 l1.5 3 l3 1 l-3 1 l-1.5 3 l-1.5 -3 l-3 -1 l3 -1z" class="f-sun no-st"/></g>
+      <rect x="-10" y="156" width="340" height="90" class="f-seasoft no-st"/>
+      <path d="M20 150 q140 -120 280 0" pathLength="1" class="ic draw" style="--t:1s;--d:.1s;stroke-width:3"/>
+      <path d="M0 150 h320" class="ic" style="stroke-width:3"/>
+      ${lamps}
+      ${waves(196, .3, .5)}${waves(222, .4, .35)}
+      ${bubble(160, 40, "安億橋亮燈了", 3.2)}`)];
+  },
+
+  art: () => {
+    const bulbs = [30, 70, 110, 150, 190, 230, 270].map((x, i) => `<circle cx="${x}" cy="${46 + Math.round(10 * Math.sin(Math.PI * (x - 10) / 280))}" r="4.5" class="lantern ic st-sun" style="--d:${.3 + i * .18}s"/>`).join("");
+    return [5, svgWrap("0 0 320 240", `
+      <path d="M10 40 q140 30 300 0" class="ic st-muted" style="stroke-width:1.4"/>
+      ${bulbs}
+      <rect x="20" y="66" width="280" height="134" rx="4" class="f-surf ic"/>
+      <g class="pop" style="--d:1s"><circle cx="78" cy="120" r="30" class="f-sunsoft ic st-sun"/></g>
+      <g class="pop" style="--d:1.4s"><path d="M130 160 q20 -50 70 -26 q-24 40 -70 26z" class="f-seasoft ic"/><circle cx="182" cy="140" r="3" class="f-fg"/></g>
+      <g class="pop" style="--d:1.8s"><path d="M250 100 c-6 -10 -22 -4 -18 8 c2 8 18 18 18 18 s16 -10 18 -18 c4 -12 -12 -18 -18 -8z" class="f-sun ic st-sun"/></g>
+      <g class="pop" style="--d:2.1s"><path d="M226 168 h50 M226 180 h34" class="ic st-sun" style="stroke-width:4"/></g>
+      <path d="M0 214 h320" class="ic st-line"/>
+      <g class="mvx" style="--x0:-60px;--x1:200px;--t:3.6s;--d:.6s">${person("mom", 10, 224, 1, true)}${person("me", 36, 224, 1, true)}</g>
+      ${bubble(160, 18, "晚上的海安路最好看", 3.6)}`)];
+  },
+
+  burger: () => [4, svgWrap("0 0 320 240", `
+    <path d="M80 204 h150" class="ic st-line"/>
+    <g class="drop" style="--d:.2s"><path d="M108 202 h88 q0 -18 -16 -18 h-56 q-16 0 -16 18z" class="f-sunsoft ic"/></g>
+    <g class="drop" style="--d:.7s"><rect x="104" y="170" width="96" height="14" rx="7" class="f-sun ic st-sun"/></g>
+    <g class="drop" style="--d:1.2s"><path d="M100 170 q8 -7 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 v-4 h-96z" class="f-seasoft ic"/></g>
+    <g class="drop" style="--d:1.7s"><path d="M104 166 q0 -44 48 -44 q48 0 48 44z" class="f-sunsoft ic"/><path d="M128 142 l2 1 M150 134 l2 1 M172 144 l2 1 M140 154 l2 1 M164 156 l2 1" class="ic" style="stroke-width:2.4"/></g>
+    <g class="slide" style="--x0:120px;--x1:0px;--d:2.3s;--t:.7s">
+      <path d="M222 170 h70 q0 34 -35 34 q-35 0 -35 -34z" class="f-surf ic"/>
+      <ellipse cx="257" cy="170" rx="35" ry="5" class="f-sunsoft ic"/>
+      <path d="M240 169 q4 -3 8 0 t8 0 t8 0" class="ic st-sun" style="stroke-width:1.6"/><path d="M278 150 l-12 22" class="ic"/>
+      <text x="257" y="226" text-anchor="middle" class="tm" font-size="11">麵線羹</text></g>
+    ${duo(28, 214, .9, .1)}
+    ${bubble(170, 34, "經典組合成立！", 3)}`)],
+
+  duck: () => {
+    const sl = (x, y, r, d) => `<g class="drop" style="--d:${d}s"><g transform="translate(${x} ${y}) rotate(${r})"><path d="M-18 4 q18 -18 36 0 q-18 8 -36 0z" class="f-sunsoft ic st-sun" style="stroke-width:1.6"/><path d="M-14 2 q14 -10 28 0" class="ic st-sun" style="stroke-width:3;opacity:.6"/></g></g>`;
+    return [4, svgWrap("0 0 320 240", `
+      <ellipse cx="150" cy="170" rx="80" ry="24" class="f-surf ic"/>
+      ${sl(116, 160, -12, .2)}${sl(146, 154, -2, .5)}${sl(176, 158, 10, .8)}${sl(132, 172, 4, 1.1)}${sl(166, 172, -6, 1.4)}
+      <g class="ap" style="--d:1.7s"><path d="M120 128 q-5 -6 0 -12 t0 -12 M150 122 q-5 -6 0 -12 t0 -12 M180 128 q-5 -6 0 -12 t0 -12" class="ic st-muted steam"/></g>
+      <g class="slide" style="--x0:120px;--x1:0px;--d:2.1s;--t:.7s">
+        <path d="M236 160 h64 q0 34 -32 34 q-32 0 -32 -34z" class="f-seasoft ic"/>
+        <path d="M244 160 q8 -8 16 0 t16 0 t16 0" class="ic st-sun" style="stroke-width:2"/><path d="M288 130 l-12 32 M296 132 l-14 30" class="ic"/>
+        <text x="268" y="214" text-anchor="middle" class="tm" font-size="11">乾板條</text></g>
+      ${duo(26, 216, .9, .1)}
+      ${bubble(160, 34, "煙燻鴨肉＋乾板條", 2.8)}`)];
+  },
+
+  view: () => [5, svgWrap("0 0 320 240", `
+    <rect x="-10" y="150" width="340" height="100" class="f-seasoft no-st"/>
+    <path d="M0 150 h320" class="ic"/>
+    ${waves(176, .2, .6)}${waves(206, .3, .4)}
+    <g class="ap" style="--d:.2s"><path d="M150 150 v-26 h12 v-14 h10 v14 h14 v26 M200 150 v-46 l8 -18 l8 18 v46 M230 150 v-20 h18 v20 M256 150 v-32 h16 v32" class="f-surf ic st-muted" style="stroke-width:1.4"/></g>
+    <g class="mvx" style="--x0:330px;--x1:-120px;--t:5s;--d:.3s"><path d="M0 186 h40 l-6 8 h-30z" class="f-surf ic"/><path d="M12 186 v-10 h12 v10" class="ic"/></g>
+    <path d="M-10 240 v-100 q60 -40 120 20 q20 22 30 80z" class="f-sunsoft ic"/>
+    <path d="M14 168 h96 M24 168 v20 M50 168 v20 M76 168 v20 M100 168 v20" class="ic" style="stroke-width:1.6"/>
+    ${duo(44, 166, .8, .3)}
+    <g class="pop" style="--d:2.2s"><circle cx="122" cy="196" r="11" class="f-sunsoft ic"/><circle cx="118" cy="194" r="1.4" class="f-fg"/><circle cx="125" cy="194" r="1.4" class="f-fg"/><ellipse cx="121" cy="199" rx="5" ry="3" class="f-surf ic" style="stroke-width:1.2"/><circle cx="111" cy="190" r="3" class="f-sunsoft ic" style="stroke-width:1.2"/><circle cx="133" cy="190" r="3" class="f-sunsoft ic" style="stroke-width:1.2"/></g>
+    <g class="pop" style="--d:2.9s"><path d="M70 104 c-5 -8 -18 -3 -15 7 c2 6 15 14 15 14 s13 -8 15 -14 c3 -10 -10 -15 -15 -7z" class="f-sun ic st-sun"/></g>
+    ${bubble(200, 40, "看到高雄港了！還有獼猴", 3.3)}`)]
+};
+
+/* 開／關動畫 */
+const ov = document.getElementById("ov"), stage = document.getElementById("stage"), bar = document.getElementById("ovbar");
+let lastBtn = null, timer = 0, closing = 0;
+function openAnim(btn){
+  const make = ANIMS[btn.dataset.anim]; if (!make) return;
+  clearTimeout(timer); clearTimeout(closing);
+  lastBtn = btn;
+  const [dur, svg] = make(btn.dataset.say);
+  const total = reduceMotion.matches ? 2.5 : dur + 1.2;
+  stage.innerHTML = svg;
+  const s = stage.querySelector("svg");
+  try {
+    if (reduceMotion.matches){ s.setCurrentTime(dur); s.pauseAnimations(); }
+    else s.setCurrentTime(0);
+  } catch(e){}
+  ov.setAttribute("aria-label", btn.getAttribute("aria-label").replace("播放小動畫：", "小動畫："));
+  bar.style.animation = "none"; void bar.offsetWidth;
+  bar.style.animation = `shrink ${total}s linear forwards`;
+  ov.hidden = false;
+  requestAnimationFrame(() => ov.classList.add("show"));
+  ov.focus({ preventScroll: true });
+  timer = setTimeout(closeAnim, total * 1000);
+}
+function closeAnim(){
+  if (ov.hidden) return;
+  clearTimeout(timer);
+  ov.classList.remove("show");
+  closing = setTimeout(() => { ov.hidden = true; stage.innerHTML = ""; }, 280);
+  if (lastBtn) lastBtn.focus({ preventScroll: true });
+}
+ov.addEventListener("click", closeAnim);
+document.addEventListener("keydown", e => {
+  if (ov.hidden) return;
+  if (e.key === "Escape" || e.key === "Tab"){ e.preventDefault(); closeAnim(); }
+});
+
+/* =========================================================
+   七、啟動
+   ========================================================= */
+render();
+countdown();
+setupNav();
+setupClicks();
+setupReveal();
+</script>
+</body>
+</html>
